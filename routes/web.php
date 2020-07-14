@@ -17,15 +17,9 @@ Route::get('/', function () {
     return view('category');
 });
 
-Route::get('/admin', function (){
-   return view('Admin.dashboard');
-});
-Route::get('/tables', function (){
-   return view('Components.tables');
-});
-
 Auth::routes();
 
-// Route::middleware('auth')->group(function(){
-//    Route::get('/admin');
-// });
+Route::middleware('auth')->group(function(){
+   Route::get('/dashboard', 'AdminController@index')->name('admin_dashboard');
+   Route::get('/view-users', 'AdminController@view_users')->name('view_users');
+});
