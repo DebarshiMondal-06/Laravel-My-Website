@@ -128,7 +128,7 @@
 								<div class="single_post post_1">
 									<div class="single_post_img">
 										<span class="badge badge-pill badge-info"><i class="fas fa-star" style="color: orange;"></i> Recent Post</span>
-										<img src="img/post/post_19.png" alt="">
+										<img src="{!! asset('img/post/post_19.png') !!}" alt="">
 									</div>
 									<div class="single_post_text text-center">
 										<a href="category.html">

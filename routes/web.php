@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('category');
 });
 
+Route::get('/admin', function (){
+   return view('Admin.dashboard');
+});
+Route::get('/tables', function (){
+   return view('Components.tables');
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::middleware('auth')->group(function(){
+//    Route::get('/admin');
+// });

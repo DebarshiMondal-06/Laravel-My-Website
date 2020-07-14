@@ -67,7 +67,7 @@
                                 <li>
                                     <div id="wrap">
                                         <form action="#" autocomplete="on">
-                                            <input id="search" name="search" type="text" placeholder="Search here"><span class="ti-search"></span> 
+                                            <input id="search" name="search" type="text" placeholder="Search here"><span class="ti-search"></span>
                                         </form>
                                     </div>
                                 </li>
@@ -380,7 +380,7 @@
                                     <img src="img/sidebar/sidebar_2.png" alt="">
                               </div>
                               <div class="post_text_1 pr_30">
-                                    
+
                                     <a href="single-blog.html">
                                           <h3>Subdue lesser beast winged
                                           bearing meat tree one</h3>
@@ -401,7 +401,7 @@
                               </div>
                               </div>
                         </div>
-                        
+
                         <div class="single_sidebar_wiget">
                               <div class="sidebar_tittle">
                               <h3>Share this post</h3>
