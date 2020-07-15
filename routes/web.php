@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('category');
-});
+})->name('/');
 
 Auth::routes();
 
