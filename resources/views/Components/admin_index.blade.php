@@ -17,6 +17,7 @@
 	<link href="{!! asset('css/sb-admin-2.min.css') !!}" rel="stylesheet">
 	<link rel="stylesheet" href="{!! asset('css/app.css') !!}">
 	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 </head>
 
 <body id="page-top">
@@ -37,8 +38,9 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					@yield('dashboard_content')
-
 					@yield('view_users')
+
+					@yield('content')
 				</div>
 				<!-- End of Main Content -->
 			</div>
@@ -47,7 +49,7 @@
 		<a class="scroll-to-top rounded" href="#page-top">
 			<i class="fas fa-angle-up"></i>
 		</a>
-
+		
 		<!-- Logout Modal-->
 		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -77,6 +79,7 @@
 		<script type="text/javascript" src="{!! asset('js/app.js') !!}"></script>
 		<!-- Custom scripts for all pages-->
 		<script src="{!! asset('js/sb-admin-2.min.js') !!}"></script>
+
 
 		@yield('scripts_tables')
 

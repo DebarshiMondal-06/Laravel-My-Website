@@ -49,7 +49,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Operations:</h6>
          <a class="collapse-item" href="utilities-color.html">View Blog</a>
-         <a class="collapse-item" href="utilities-border.html">View Categories </a>
+         <a class="collapse-item" href="{!! route('view-create-category') !!}">View Categories </a>
          <a class="collapse-item" href="utilities-other.html">Other</a>
       </div>
    </div>
