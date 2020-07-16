@@ -26,9 +26,14 @@ Route::middleware('auth')->group(function(){
 
 });
 
-
 Route::middleware(['auth','web'])->group(function() {
    Route::post('/create_category','CategoryController@create')->name('create-category');
    Route::get('/create-view-categories','CategoryController@category')->name('view-create-category');
    Route::delete('/create-view-categories/{id}','CategoryController@delete')->name('delete-category');
+});
+
+Route::middleware('auth')->group(function() {
+   Route::get('/view-roles','RoleController@index')->name('role-view');
+   Route::post('/create-roles','RoleController@create')->name('create-role');
+   Route::delete('/create-roles/{id}','RoleController@delete')->name('delete-role');
 });
