@@ -15,8 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('category');
-})->name('/');
+    return view('category'); })->name('/');
 
 Auth::routes();
 
