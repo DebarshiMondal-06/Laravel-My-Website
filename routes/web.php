@@ -22,6 +22,8 @@ Auth::routes();
 Route::middleware('auth')->group(function(){
    Route::get('/dashboard', 'AdminController@index')->name('admin_dashboard');
    Route::get('/view-users', 'AdminController@view_users')->name('view_users');
+   Route::get('/assign-roles/{id}','AdminController@assign_roles')->name('assign-role');
+   Route::put('/assign-roles/assigned/{id}','AdminController@assigned')->name('assigned');
 
 });
 

@@ -18,4 +18,8 @@ class Role extends Model
    public function setNameAttribute($value) {
       $this->attributes['name'] = ucfirst($value);
    }
+
+   public function user() {
+      return $this->belongsToMany(User::class);
+   }
 }

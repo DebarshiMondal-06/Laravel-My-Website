@@ -28,7 +28,7 @@
                      @foreach ($view_users as $all_users)
                         <tr>
                            <td>{{ $all_users->id }}</td>
-                           <td>{{ $all_users->name }}</td>
+                           <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
                            <td>{{ $all_users->email }}</td>
                            <td>{{ $all_users->created_at->diffforhumans() }}</td>
                            <td>{{ $all_users->updated_at->diffforhumans() }}</td>

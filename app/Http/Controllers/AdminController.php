@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 class AdminController extends Controller
 {
     //
@@ -18,6 +19,18 @@ class AdminController extends Controller
       return view('Admin.View_Users', compact('view_users'));
    }
 
+
+   public function assign_roles(User $id) {
+      $roles = Role::all();
+      return view('Admin.assign-roles',compact([
+         'id','roles'
+      ]));
+   }
+
+   public function assigned(User $id){
+      $id->roles()->attach(request('role'));
+      return back();
+   }
 
 
 
