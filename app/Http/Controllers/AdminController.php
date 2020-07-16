@@ -32,6 +32,11 @@ class AdminController extends Controller
       return back();
    }
 
+   public function detached(User $id) {
+      $id->roles()->detach(request('role_delete'));
+      return back();
+   }
+
 
 
 }

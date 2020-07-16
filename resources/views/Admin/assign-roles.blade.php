@@ -53,7 +53,17 @@
 
                                  </td>
                                  <td>
-                                    <a href=""><button class="btn btn-danger"> Detach </button></a> </td>
+                                    <form action="{!! route('detached',$id->id) !!}" method="post">
+                                       @csrf
+                                       @method('DELETE')
+                                       <input type="hidden" name="role_delete" value="{{ $all_roles->id }}">
+                                       <button type="submit" class="btn btn-danger"
+                                       @if (!($id->roles->contains($all_roles)))
+                                          disabled
+                                       @endif
+                                       > Detach </button>
+                                    </form>
+                                 </td>
                               </tr>
                            @endforeach
                         </tbody>
