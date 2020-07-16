@@ -7,9 +7,9 @@ use App\User;
 use App\Role;
 class AdminController extends Controller
 {
-    //
+   //
 
-    public function index() {
+   public function index() {
       $users = User::all();
       return view('Admin.dashboard', compact('users'));
    }
@@ -37,6 +37,12 @@ class AdminController extends Controller
       return back();
    }
 
+   public function view_roles_user() {
+      return view('Admin.View-user-roles',[
+         'roles' => Role::all(),
+         'users' => User::all(),
+      ]);
+   }
 
 
 }

@@ -34,6 +34,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Operations:</h6>
          <a class="collapse-item" href="{!! route('role-view') !!}"> View Roles </a>
+         <a class="collapse-item" href="{!! route('view-user-roles') !!}"> Assigned Roles </a>
       </div>
    </div>
 </li>
