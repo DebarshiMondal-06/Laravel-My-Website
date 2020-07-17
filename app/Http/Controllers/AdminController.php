@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use App\Category;
 class AdminController extends Controller
 {
    //
 
    public function index() {
       $users = User::all();
-      return view('Admin.dashboard', compact('users'));
+      $roles = Role::get();
+      $category = Category::get();
+      return view('Admin.dashboard', compact([
+         'users','roles','category'
+      ]));
    }
 
    public function view_users() {
@@ -38,10 +43,11 @@ class AdminController extends Controller
    }
 
    public function view_roles_user() {
-      return view('Admin.View-user-roles',[
-         'roles' => Role::all(),
-         'users' => User::all(),
-      ]);
+
+      $user_roles = User::all();
+      return view('Admin.View-user-roles',['users'=>$user_roles]);
+
+
    }
 
 

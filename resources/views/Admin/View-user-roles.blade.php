@@ -5,38 +5,50 @@
       <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the </p>
 
       <!-- DataTales Example -->
-      <div class="card shadow mb-4">
-         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> Assigned Roles Users</h6>
-         </div>
-         <div class="card-body">
-            <div class="table-responsive">
-               <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                     <tr>
-                        <th>User Id</th>
-                        <th>User Name</th>
-                        <th> User Role </th>
-                        <th> Operations</th>
-                     </tr>
-                  </thead>
+      <div class="row">
+         <div class="col-md-8">
+            <div class="card shadow mb-4">
+               <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary"> Assigned Roles Users</h6>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                           <tr>
+                              <th>User Id</th>
+                              <th>User Name</th>
+                              <th> User Role </th>
+                              <th> Assigned On </th>
+                              <th> Operations</th>
+                           </tr>
+                        </thead>
 
-                  <tbody class="text-center">
-                     @foreach ($roles->user as $all_roles)
-                        <tr>
-                           <td>{{ $all_roles->user()->id }}</td>
-                           {{-- <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
-                           <td>{{ $all_users->email }}</td>
-                           <td>{{ $all_users->created_at->diffforhumans() }}</td>
-                           <td>{{ $all_users->updated_at->diffforhumans() }}</td>
-                           <td><a class="font-weight-bold text-success" href="">Approved</a></td>
-                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td> --}}
-                        </tr>
-                     @endforeach
-                  </tbody>
-               </table>
+                        <tbody class="text-center">
+                           @foreach ($users as $all_users)
+                              @foreach ($all_users->roles as $value)
+                                 <tr>
+                                    <td>{{ $all_users->id }}</td>
+                                    <td>{{ $all_users->name }}</td>
+                                    <td>
+                                       @if ($value->name == 'Admin')
+                                          <b>{{ $value->name }}</b>
+                                       @else
+                                          {{ $value->name }}
+                                       @endif
+                                    </td>
+                                    <td>{{ $value->pivot->created_at->diffforhumans() }}</td>
+                                    <td><a href="{!! route('assign-role',$all_users->id) !!}" class="btn btn-info"> View </a></td>
+                                 </tr>
+                              @endforeach
+                           @endforeach
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
             </div>
          </div>
+         <div class="col-md-4"></div>
       </div>
    @endsection
 
