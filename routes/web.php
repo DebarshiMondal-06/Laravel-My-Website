@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
    Route::put('/assign-roles/assigned/{id}','AdminController@assigned')->name('assigned');
    Route::delete('/assign-roles/detached/{id}','AdminController@detached')->name('detached');
    Route::get('/view-user-roles','AdminController@view_roles_user')->name('view-user-roles');
+   Route::get('/add-posts','AdminController@add_posts')->name('add-posts');
 
 });
 

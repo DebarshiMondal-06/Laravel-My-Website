@@ -43,11 +43,12 @@ class AdminController extends Controller
    }
 
    public function view_roles_user() {
-
       $user_roles = User::all();
       return view('Admin.View-user-roles',['users'=>$user_roles]);
+   }
 
-
+   public function add_posts() {
+      return view('Admin.Post_content');
    }
 
 

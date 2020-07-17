@@ -61,7 +61,7 @@
 <div class="sidebar-heading">Addons</div>
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-   <a class="nav-link" href="tables.html">
+   <a class="nav-link" href="{!! route('add-posts') !!}">
       <i class="fas fa-fw fa-table"></i>
       <span> Create Post </span>
    </a>
