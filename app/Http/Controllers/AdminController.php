@@ -47,9 +47,5 @@ class AdminController extends Controller
       return view('Admin.View-user-roles',['users'=>$user_roles]);
    }
 
-   public function add_posts() {
-      return view('Admin.Post_content');
-   }
-
 
 }

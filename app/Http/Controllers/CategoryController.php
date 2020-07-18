@@ -30,7 +30,8 @@ class CategoryController extends Controller
          return back();
       }
       else {
-         dd($id);
+         $id->delete();
+         return back();
       }
 
 
