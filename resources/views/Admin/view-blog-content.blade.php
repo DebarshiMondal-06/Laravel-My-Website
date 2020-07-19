@@ -26,35 +26,36 @@
                   </thead>
 
                   <tbody class="text-center">
-                     {{-- @foreach ($view_users as $all_users)
-                     <tr>
-                     <td>{{ $all_users->id }}</td>
-                     <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
-                     <td>{{ $all_users->email }}</td>
-                     <td>{{ $all_users->created_at->diffforhumans() }}</td>
-                     <td>{{ $all_users->updated_at->diffforhumans() }}</td>
-                     <td><a class="font-weight-bold text-success" href="">Approved</a></td>
-                     <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
-                  </tr>
-               @endforeach --}}
-            </tbody>
-         </table>
+                     @foreach ($post as $all_posts)
+                        <tr>
+                           <td>{{ $all_posts->id }}</td>
+                           <td>{{ $all_posts->user->name }}</td>
+                           <td>{{ $all_posts->categories->name }}</td>
+                           <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
+                           <td>{!! $all_posts->content !!}</td>
+                           <td><img height="100px" src="{{ $all_posts->post_image }}" alt=""></td>
+                           <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
+                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
+                        </tr>
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
+         </div>
       </div>
-   </div>
-</div>
-@endsection
+   @endsection
 
 
-@section('scripts_tables')
+   @section('scripts_tables')
 
-   <script type="text/javascript">
-   $(document).ready(function() {
-      $('#dataTable').DataTable();
-   });
-   </script>
-   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+         $('#dataTable').DataTable();
+      });
+      </script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 
 
-@endsection
+   @endsection
 </x-admin_index>

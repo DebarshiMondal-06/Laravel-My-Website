@@ -20,23 +20,19 @@ class PostController extends Controller
           'content' => 'required',
           'MainTitle' => 'required',
           'categories_id' => 'required',
-          'user_id' => 'required',
           'Status'
       ]);
 
       if(request('post_image')) {
           $input['post_image'] = request('post_image')->store('uploads');
       }
-
-
       auth()->user()->posts()->create($input);
-
       return back();
    }
 
    public function view_blog() {
       $post = Post::all();
-      return view('Admin.view-blog-content');
+      return view('Admin.view-blog-content',compact('post'));
    }
 
 }
