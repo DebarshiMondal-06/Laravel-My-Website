@@ -32,8 +32,8 @@
                            <td>{{ $all_posts->user->name }}</td>
                            <td>{{ $all_posts->categories->name }}</td>
                            <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
-                           <td>{!! $all_posts->content !!}</td>
-                           <td><img height="100px" src="{{ $all_posts->post_image }}" alt=""></td>
+                           <td>{!! Str::limit($all_posts->content, 100) !!}</td>
+                           <td><img height="100px" src="{{ $all_posts->post_image }}"></td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
                            <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
                         </tr>
