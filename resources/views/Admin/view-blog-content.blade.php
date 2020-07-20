@@ -20,6 +20,7 @@
                         <th> Title </th>
                         <th> Content </th>
                         <th> Image </th>
+                        <th> Status </th>
                         <th> Updated On</th>
                         <th> Delete Item </th>
                      </tr>
@@ -32,10 +33,13 @@
                            <td>{{ $all_posts->user->name }}</td>
                            <td>{{ $all_posts->categories->name }}</td>
                            <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
-                           <td>{!! Str::limit($all_posts->content, 100) !!}</td>
-                           <td><img height="100px" src="{{ $all_posts->post_image }}"></td>
+                           <td>{!! Str::limit($all_posts->content, 80) !!}</td>
+                           <td>
+                              <img height="100px" src="{{ $all_posts->post_image }}" alt="picture">
+                           </td>
+                           <td>{{ $all_posts->Status }}</td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
-                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
                         </tr>
                      @endforeach
                   </tbody>

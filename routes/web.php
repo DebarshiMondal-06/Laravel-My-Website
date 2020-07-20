@@ -32,6 +32,7 @@ Route::get('/', function () {
       Route::get('/add-posts','PostController@add_posts')->name('add-posts');
       Route::post('/add-posts/check','PostController@store')->name('checked');
       Route::get('/view-blog','PostController@view_blog')->name('view-blog');
+      Route::get('/view-blog/delete/{id}','PostController@delete')->name('delete-blog');
    });
 
    Route::middleware(['auth','web'])->group(function() {

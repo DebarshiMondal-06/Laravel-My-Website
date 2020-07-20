@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use App\Category;
+use App\Post;
 class AdminController extends Controller
 {
    //
@@ -14,8 +15,9 @@ class AdminController extends Controller
       $users = User::all();
       $roles = Role::get();
       $category = Category::get();
+      $post = Post::get();
       return view('Admin.dashboard', compact([
-         'users','roles','category'
+         'users','roles','category','post'
       ]));
    }
 

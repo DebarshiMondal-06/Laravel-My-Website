@@ -9,8 +9,7 @@
                   <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Blog Post</div>
-                        <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1">
-                           0 </div>
+                        <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1">{{ $post->count() }} </div>
                            <div class="">
                               <a href="{!! route('view_users') !!}"> View Here </a>
                            </div>
