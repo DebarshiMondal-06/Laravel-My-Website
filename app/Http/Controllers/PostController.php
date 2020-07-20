@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
@@ -36,14 +37,20 @@ class PostController extends Controller
 
    public function delete(Post $id) {
 
-      if($id->post_image) {
-         if(file_exists($id->post_image)){
-            unlink($id->post_image);
+      if((auth()->user()->id == $id->user_id))
+      {
+         $path = public_path(). '/storage/' . $id->post_image;
+         if(file_exists($path)) {
+            unlink($path);
+            $id->delete();
+            return back();
          }
+
       }
-      
-      $id->delete();
-      return back();
+      else {
+         return back();
+      }
+
    }
 
 

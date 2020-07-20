@@ -22,8 +22,8 @@ class Post extends Model
    //    $this->attributes['Status'] = "Not Published";
    // }
 
-   public function getPostImageAttribute($value)
-   {
-      return asset('public/storage/' . $value);
-   }
+   // public function getPostImageAttribute($value)
+   // {
+   //    return asset('storage/' . $value);
+   // }
 }
