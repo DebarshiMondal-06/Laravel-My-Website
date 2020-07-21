@@ -20,8 +20,8 @@
                         <th> Title </th>
                         <th> Content </th>
                         <th> Image </th>
-                        <th> Status </th>
                         <th> Updated On</th>
+                        <th> Status </th>
                         <th> Delete Item </th>
                      </tr>
                   </thead>
@@ -37,9 +37,20 @@
                            <td>
                               <img height="100px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
                            </td>
-                           <td>{{ $all_posts->Status }}</td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
-                           <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>
+                              <form action="{!! route('publish',$all_posts->id) !!}" method="PUT">
+                                 @csrf
+                                 {{-- @method('PUT') --}}
+                                 <button class="btn btn-primary"> Publish </button>
+                              </form>
+                           </td>
+                           <td>
+                              <form  action="{!! route('delete-blog', $all_posts->id) !!}" method="get">
+                                 @csrf
+                                 <button class="btn btn-danger"> Delete </button>
+                              </form>
+                           </td>
                         </tr>
                      @endforeach
                   </tbody>
