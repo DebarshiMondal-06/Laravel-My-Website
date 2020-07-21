@@ -11,7 +11,7 @@ class PostController extends Controller
    //
    public function add_posts() {
       $category = Category::all();
-      return view('Admin.Post_content', compact('category'));
+      return view('Post.Post_content', compact('category'));
    }
 
    public function store() {
@@ -31,7 +31,19 @@ class PostController extends Controller
 
    public function view_blog() {
       $post = Post::Where('Status',NULL)->get();
-      return view('Admin.view-blog-content',compact('post'));
+      return view('Post.view-blog-content',compact('post'));
+   }
+
+   public function publish(Post $id) {
+      $id->Status = "Published";
+      $id->save();
+      return back();
+   }
+
+
+   public function Published_blog() {
+      $post_published = Post::Where('Status','Published')->get();
+      return view('Post.published_blog',compact('post_published'));
    }
 
    public function delete(Post $id) {
@@ -48,12 +60,6 @@ class PostController extends Controller
          return back();
       }
 
-   }
-
-   public function publish(Post $id) {
-      $id->Status = "Published";
-      $id->save();
-      return back();
    }
 
 

@@ -1,8 +1,7 @@
 <x-admin_index>
    @section('view_users')
 
-      <h1 class="h3 mb-4 text-gray-800"> View Blog </h1>
-      <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the </p>
+      <h1 class="h3 mb-4 text-gray-800"> View Published Blog </h1>
 
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
@@ -20,14 +19,14 @@
                         <th> Title </th>
                         <th> Content </th>
                         <th> Image </th>
-                        <th> Status </th>
                         <th> Updated On</th>
+                        <th> Status </th>
                         <th> Delete Item </th>
                      </tr>
                   </thead>
 
                   <tbody class="text-center">
-                     @foreach ($post as $all_posts)
+                     @foreach ($post_published as $all_posts)
                         <tr>
                            <td>{{ $all_posts->id }}</td>
                            <td>{{ $all_posts->user->name }}</td>
@@ -37,8 +36,8 @@
                            <td>
                               <img height="100px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
                            </td>
-                           <td>{{ $all_posts->Status }}</td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
+                           <td><b>{{ $all_posts->Status }}</b></td>
                            <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
                         </tr>
                      @endforeach
