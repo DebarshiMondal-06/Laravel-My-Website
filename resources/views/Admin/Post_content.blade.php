@@ -41,6 +41,7 @@
                               </span>
                            @enderror
                         </div>
+                        <input type="hidden" name="Status" value="Not Published">
                      </div>
                      <div class="col-lg-6">
 

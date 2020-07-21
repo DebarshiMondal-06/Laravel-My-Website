@@ -13,8 +13,9 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-   Route::get('/','HomeController@index')->name('/');
 
+Route::get('/', function () {
+   return view('category'); })->name('/');
 
    Auth::routes();
 
@@ -32,11 +33,10 @@ use Illuminate\Http\Request;
       Route::post('/add-posts/check','PostController@store')->name('checked');
       Route::get('/view-blog','PostController@view_blog')->name('view-blog');
       Route::get('/view-blog/delete/{id}','PostController@delete')->name('delete-blog');
-      Route::get('/view-blog/publish/{id}','PostController@publish')->name('publish');
    });
 
    Route::middleware(['auth','web'])->group(function() {
-      Route::post('/create_category-for_blog','CategoryController@create')->name('create-category');
+      Route::post('/create_category','CategoryController@create')->name('create-category');
       Route::get('/create-view-categories','CategoryController@category')->name('view-create-category');
       Route::delete('/create-view-categories/{id}','CategoryController@delete')->name('delete-category');
    });

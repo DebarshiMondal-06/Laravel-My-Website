@@ -16,7 +16,6 @@
                      <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Blog Post</th>
                         <th>User Email</th>
                         <th> Registered On</th>
                         <th> Updated On</th>
@@ -30,7 +29,6 @@
                         <tr>
                            <td>{{ $all_users->id }}</td>
                            <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
-                           <td>{{ $all_users->posts->count() }}</td>
                            <td>{{ $all_users->email }}</td>
                            <td>{{ $all_users->created_at->diffforhumans() }}</td>
                            <td>{{ $all_users->updated_at->diffforhumans() }}</td>

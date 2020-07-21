@@ -11,7 +11,7 @@
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Blog Post</div>
                         <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1">{{ $post->count() }} </div>
                            <div class="">
-                              <a href="{!! route('view-blog') !!}"> View Here </a>
+                              <a href="{!! route('view_users') !!}"> View Here </a>
                            </div>
                         </div>
                         <div class="col-auto">
@@ -49,7 +49,7 @@
                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Categories</div>
                            <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1"> {{ $category->count() }} </div>
                            <div class="">
-                              <a href="{!! route('view-create-category') !!}"> View Here </a>
+                              <a href="{!! route('view_users') !!}"> View Here </a>
                            </div>
                         </div>
                         <div class="col-auto">
@@ -70,7 +70,7 @@
                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Roles</div>
                            <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1"> {{ $roles->count() }} </div>
                            <div class="">
-                              <a href="{!! route('role-view') !!}"> View Here </a>
+                              <a href="{!! route('view_users') !!}"> View Here </a>
                            </div>
                         </div>
                         <div class="col-auto">
