@@ -18,12 +18,4 @@ class Post extends Model
       return $this->belongsTo(Category::class);
    }
 
-   // public function setStatusAttribute() {
-   //    $this->attributes['Status'] = "Not Published";
-   // }
-
-   // public function getPostImageAttribute($value)
-   // {
-   //    return asset('storage/' . $value);
-   // }
 }

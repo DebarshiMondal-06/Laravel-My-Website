@@ -19,24 +19,22 @@ class PostController extends Controller
          'post_image' => 'file| required',
          'content' => 'required',
          'MainTitle' => 'required',
-         'categories_id' => 'required',
-         'Status' => 'required'
+         'categories_id' => 'required'
       ]);
 
       if(request('post_image')) {
          $input['post_image'] = request('post_image')->store('uploads');
       }
       auth()->user()->posts()->create($input);
-      return back();
+      return redirect()->route('view-blog');
    }
 
    public function view_blog() {
-      $post = Post::all();
+      $post = Post::Where('Status',NULL)->get();
       return view('Admin.view-blog-content',compact('post'));
    }
 
    public function delete(Post $id) {
-
       if((auth()->user()->id == $id->user_id))
       {
          $path = public_path(). '/storage/' . $id->post_image;
@@ -45,12 +43,17 @@ class PostController extends Controller
             $id->delete();
             return back();
          }
-
       }
       else {
          return back();
       }
 
+   }
+
+   public function publish(Post $id) {
+      $id->Status = "Published";
+      $id->save();
+      return back();
    }
 
 
