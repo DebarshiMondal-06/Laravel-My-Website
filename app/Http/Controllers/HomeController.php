@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,13 @@ class HomeController extends Controller
      */
 
      public function index() {
+        $category = Category::all();
         $posts = Post::orderby('created_at','DESC')->limit(3)->get();
-        return view('category',compact('posts'));
+        return view('Home.index_page',compact('posts','category'));
+     }
+
+     public function single_category($id) {
+        $single = Post::where('categories_id',$id)->get();
+        return view('Home.categories_page',['single_blog'=>$single]);
      }
 }

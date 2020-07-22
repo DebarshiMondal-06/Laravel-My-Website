@@ -102,14 +102,20 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="contents order-md-1 pl-0">
-										<h2><a href="blog-single.html">{{ $all_posts->MainTitle }}</a></h2>
+										<h2 class="title"><a href="blog-single.html" class="text-dark">{{ $all_posts->MainTitle }}</a></h2>
 										<style>
 										.mb-1 a:hover{
 											color: red!important;
 										}
+										.title a{
+											text-decoration: none;
+										}
+										.title a:hover{
+											color: red!important;
+										}
 										</style>
 										<p class="mb-1">Category/<a href="" id="info">{{ $all_posts->categories->name }}</a></p>
-										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href=""> Read More...</a></p>
 										<div class="post-meta">
 											<span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $all_posts->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;{{ $all_posts->created_at->diffforhumans() }}</span>
 										</div>
@@ -117,11 +123,11 @@
 								</div>
 								<div class="col-md-4">
 									<style media="screen">
-										.badge{
-											position: absolute;
-											top: 10px;
-											left: 0;
-										}
+									.badge{
+										position: absolute;
+										top: 10px;
+										left: 0;
+									}
 									</style>
 									<p class="badge badge-pill badge-success"><i class="fas fa-star" style="font-size: 8px;"></i> Recent Posts</p>
 									<img height="150px" width="200px" class="thumbnail order-md-2" src="{{ 'public/storage/'.$all_posts->post_image }}" alt="">
@@ -144,11 +150,9 @@
 							</div>
 							<div class="single_catagory_item category">
 								<ul class="list-unstyled">
-									<li><a href="category.html">Compute</a> <span>(15)</span> </li>
-									<li><a href="category.html">Storage</a> <span>(15)</span> </li>
-									<li><a href="category.html">Database</a> <span>(15)</span> </li>
-									<li><a href="category.html">Networking</a> <span>(15)</span> </li>
-									<li><a href="category.html">Others</a> <span>(15)</span> </li>
+									@foreach ($category as $all_category)
+										<li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div>

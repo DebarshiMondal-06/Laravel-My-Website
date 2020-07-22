@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 */
 
    Route::get('/','HomeController@index')->name('/');
+   Route::get('/categories-for-blog/{id}','HomeController@single_category')->name('single_category');
 
    Auth::routes();
 
