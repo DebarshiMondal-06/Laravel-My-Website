@@ -14,8 +14,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-   return view('category'); })->name('/');
+   Route::get('/','HomeController@index')->name('/');
 
    Auth::routes();
 

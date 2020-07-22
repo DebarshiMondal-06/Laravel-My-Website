@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
 
      public function index() {
-        $posts = Post::all();
+        $posts = Post::orderby('created_at','DESC')->limit(3)->get();
         return view('category',compact('posts'));
      }
 }
