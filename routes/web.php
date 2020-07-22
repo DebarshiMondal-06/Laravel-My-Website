@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-   return view('category'); })->name('/');
+   Route::get('/','HomeController@index')->name('/');
+   Route::get('/categories-for-blog/{id}','HomeController@single_category')->name('single_category');
 
    Auth::routes();
 
@@ -28,11 +28,14 @@ Route::get('/', function () {
       Route::get('/view-user-roles','AdminController@view_roles_user')->name('view-user-roles');
    });
 
+
    Route::middleware('auth')->group(function() {
       Route::get('/add-posts','PostController@add_posts')->name('add-posts');
       Route::post('/add-posts/check','PostController@store')->name('checked');
       Route::get('/view-blog','PostController@view_blog')->name('view-blog');
       Route::get('/view-blog/delete/{id}','PostController@delete')->name('delete-blog');
+      Route::put('/view-blog/publish-this-blog/{id}','PostController@publish')->name('publish');
+      Route::get('/view-blog/published-blogs','PostController@Published_blog')->name('published-blog-view');
    });
 
    Route::middleware(['auth','web'])->group(function() {

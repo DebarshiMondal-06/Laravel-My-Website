@@ -1,7 +1,7 @@
 <x-admin_index>
    @section('view_users')
 
-      <h1 class="h3 mb-4 text-gray-800"> Registered Users </h1>
+      <h1 class="h3 mb-4 text-gray-800"> View Blog </h1>
       <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the </p>
 
       <!-- DataTales Example -->
@@ -16,26 +16,36 @@
                      <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th> Blog Post </th>
-                        <th>User Email</th>
-                        <th> Registered On</th>
+                        <th> Category </th>
+                        <th> Title </th>
+                        <th> Content </th>
+                        <th> Image </th>
                         <th> Updated On</th>
-                        <th> Operations</th>
+                        <th> Status </th>
                         <th> Delete Item </th>
                      </tr>
                   </thead>
 
                   <tbody class="text-center">
-                     @foreach ($view_users as $all_users)
+                     @foreach ($post as $all_posts)
                         <tr>
-                           <td>{{ $all_users->id }}</td>
-                           <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
-                           <td>{{ $all_users->posts->count() }}</td>
-                           <td>{{ $all_users->email }}</td>
-                           <td>{{ $all_users->created_at->diffforhumans() }}</td>
-                           <td>{{ $all_users->updated_at->diffforhumans() }}</td>
-                           <td><a class="font-weight-bold text-success" href="">Approved</a></td>
-                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>{{ $all_posts->id }}</td>
+                           <td>{{ $all_posts->user->name }}</td>
+                           <td>{{ $all_posts->categories->name }}</td>
+                           <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
+                           <td>{!! Str::limit($all_posts->content, 80) !!}</td>
+                           <td>
+                              <img height="100px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
+                           </td>
+                           <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
+                           <td>
+                              <form  action="{!! route('publish',$all_posts->id) !!}" method="post">
+                                 @csrf
+                                 @method('PUT')
+                                 <button class="btn btn-primary"> Publish </button>
+                              </form>
+                           </td>
+                           <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
                         </tr>
                      @endforeach
                   </tbody>
@@ -58,6 +68,4 @@
 
 
    @endsection
-
-
 </x-admin_index>

@@ -5,7 +5,7 @@
       <link rel="stylesheet" href="{!! asset('css/sb-admin-2.min.css') !!}">
       <div class="container">
          <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                <form class="user" action="{!! route('checked') !!}" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group">
@@ -43,9 +43,9 @@
                         </div>
                         <input type="hidden" name="Status" value="Not Published">
                      </div>
-                     <div class="col-lg-6">
+                     <div class="col-lg-7">
 
-
+                        
                         <div class="form-group">
                            <label for=""> Body </label>
                            <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="20" cols="180">{{ old('content') }}</textarea>

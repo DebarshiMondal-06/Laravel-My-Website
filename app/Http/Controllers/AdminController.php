@@ -16,8 +16,9 @@ class AdminController extends Controller
       $roles = Role::get();
       $category = Category::get();
       $post = Post::get();
+      $post_published = Post::where('Status','Published')->get();
       return view('Admin.dashboard', compact([
-         'users','roles','category','post'
+         'users','roles','category','post','post_published'
       ]));
    }
 
