@@ -107,8 +107,4 @@
 
       </body>
 
-<<<<<<< HEAD
-</html> --}}
-=======
       </html>
->>>>>>> developing
