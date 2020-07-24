@@ -17,60 +17,7 @@
 
 <body>
 	<!--::header part start::-->
-	<header class="main_menu">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-12">
-					<nav class="navbar navbar-expand-lg navbar-light">
-						<a class="navbar-brand" href="index.html"> <b style="font-style: italic; font-size: 1.5em">DΣBΛЯƧΉI</b> </a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-
-						<div class="collapse navbar-collapse main-menu-item justify-content-center" id="navbarSupportedContent">
-							<ul class="navbar-nav">
-								<li class="nav-item active">
-									<a class="nav-link" href="index.html">Home</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="archive.html">Archive</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="category.html"> Category</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="contact.html">Contact</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Pages
-									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="single-blog.html">Single blog</a>
-										<a class="dropdown-item" href="elements.html">elements</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="header_social_icon d-none d-lg-block">
-							<ul>
-								<style>
-								.d-none {
-									margin-top: 20px;
-									word-spacing: 5px;
-								}
-								</style>
-								<li><a href="#" class=""><i class="fab fa-facebook-square fa-2x"></i></a></li>
-								<li><a href="#"> <i class="fab fa-linkedin fa-2x"></i></a></li>
-								<li><a href="#"><b><i class="fab fa-instagram fa-2x"></i></b></a></li>
-								<li><a href="#"><i class="fab fa-skype fa-2x"></i></a></li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
+	@include('Home.navbar-home')
 	<!-- Header part end-->
 
 	<!-- breadcrumb start-->
@@ -150,7 +97,7 @@
 							</div>
 							<div class="single_catagory_item category">
 								<ul class="list-unstyled">
-									@foreach ($category as $all_category)
+									@foreach ($categories as $all_category)
 										<li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
 									@endforeach
 								</ul>
