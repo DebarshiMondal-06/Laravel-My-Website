@@ -1,7 +1,7 @@
 <x-admin_index>
    @section('view_users')
 
-      <h1 class="h3 mb-4 text-gray-800"> View Blog Not Published </h1>
+      <h1 class="h3 mb-4 text-gray-800"> View All Blog</h1>
       <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the </p>
 
       <!-- DataTales Example -->
@@ -20,6 +20,7 @@
                         <th> Title </th>
                         <th> Content </th>
                         <th> Image </th>
+                        <th> Created On</th>
                         <th> Updated On</th>
                         <th> Status </th>
                         <th> Delete Item </th>
@@ -27,25 +28,22 @@
                   </thead>
 
                   <tbody class="text-center">
-                     @foreach ($post as $all_posts)
+                     @foreach ($all_blogs as $all_blogss)
                         <tr>
-                           <td>{{ $all_posts->id }}</td>
-                           <td>{{ $all_posts->user->name }}</td>
-                           <td>{{ $all_posts->categories->name }}</td>
-                           <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
-                           <td>{!! Str::limit($all_posts->content, 80) !!}</td>
+                           <td>{{ $all_blogss->id }}</td>
+                           <td>{{ $all_blogss->user->name }}</td>
+                           <td>{{ $all_blogss->categories->name }}</td>
+                           <td><a href="{!! route('assign-role',$all_blogss->id) !!}">{{ $all_blogss->MainTitle }}</a></td>
+                           <td>{!! Str::limit($all_blogss->content, 80) !!}</td>
                            <td>
-                              <img height="100px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
+                              <img height="100px" src="{{ asset('public/storage/'.$all_blogss->post_image) }}" alt="picture">
                            </td>
-                           <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
+                           <td>{{ $all_blogss->created_at->diffforhumans() }}</td>
+                           <td>{{ $all_blogss->updated_at->diffforhumans() }}</td>
                            <td>
-                              <form  action="{!! route('publish',$all_posts->id) !!}" method="post">
-                                 @csrf
-                                 @method('PUT')
-                                 <button class="btn btn-primary"> Publish </button>
-                              </form>
+                              {{ ($all_blogss->Status == 'Published')? 'Published' : 'Not Published' }}
                            </td>
-                           <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td> <a href="{!! route('delete-blog', $all_blogss->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
                         </tr>
                      @endforeach
                   </tbody>

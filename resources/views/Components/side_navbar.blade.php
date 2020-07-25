@@ -48,7 +48,8 @@
    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Operations:</h6>
-         <a class="collapse-item" href="{!! route('view-blog') !!}">View Blog</a>
+         <a class="collapse-item" href="{!! route('total-blogs') !!}">View All Blogs</a>
+         <a class="collapse-item" href="{!! route('view-blog-not') !!}">Not Published</a>
          <a class="collapse-item" href="{!! route('published-blog-view') !!}"> Published Blogs </a>
          <a class="collapse-item" href="{!! route('view-create-category') !!}">View Categories </a>
       </div>
