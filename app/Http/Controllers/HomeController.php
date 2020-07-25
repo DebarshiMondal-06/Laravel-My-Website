@@ -27,15 +27,15 @@ class HomeController extends Controller
 
    public function index() {
       $categories = Category::all();
-      $posts = Post::orderby('created_at','DESC')->limit(5)->get();
+      $posts = Post::where('Status','Published')->orderby('created_at','DESC')->limit(5)->get();
       return view('Home.index_page',compact('posts','categories'));
    }
 
-   public function single_category($id) {
+   public function single_category($slug) {
       $categories = Category::all();
-      $category = Category::where('id',$id)->first();
-      $single = Post::where('categories_id',$id)->orderby('created_at','DESC')->get();
-      $popular_post = Post::where('categories_id',$id)->orderby('created_at','DESC')->take(5)->get();
+      $category = Category::where('slug',$slug)->first();
+      $single = Post::where(['categories_id'=>$category->id,'Status'=>'Published'])->orderby('created_at','DESC')->get();
+      $popular_post = Post::where(['categories_id'=>$category->id,'Status'=>'Published'])->orderby('created_at','DESC')->take(5)->get();
       if ($single) {
          return view('Home.categories_page',
          [

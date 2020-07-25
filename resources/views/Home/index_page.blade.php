@@ -61,8 +61,8 @@
 											color: red!important;
 										}
 										</style>
-										<p class="mb-1">Category/<a href="{!! route('single_category', $all_posts->categories_id) !!}" id="info">{{ $all_posts->categories->name }}</a></p>
-										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{!! route('readmore', $all_posts->id) !!}"> Read More...</a></p>
+										<p class="mb-1">Category/<a href="{!! route('single_category', $all_posts->categories->slug) !!}" id="info">{{ $all_posts->categories->name }}</a></p>
+										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{!! route('readmore', $all_posts->slug) !!}"> Read More...</a></p>
 										<div class="post-meta">
 											<span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $all_posts->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;{{ $all_posts->created_at->diffforhumans() }}</span>
 										</div>
@@ -98,7 +98,7 @@
 							<div class="single_catagory_item category">
 								<ul class="list-unstyled">
 									@foreach ($categories as $all_category)
-										<li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
+										<li><a href="{!! route('single_category',$all_category->slug) !!}">{{ $all_category->name }}</a></li>
 									@endforeach
 								</ul>
 							</div>

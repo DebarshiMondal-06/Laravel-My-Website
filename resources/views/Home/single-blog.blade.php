@@ -32,7 +32,7 @@
                      <h2>{{ $readmore->MainTitle }}
                      </h2>
                      <ul class="blog-info-link mt-3 mb-4">
-                        <li><i class="fas fa-stream"></i> <a href="" style="color: #56BAF8!important">Category</a>/ {{ $readmore->categories->name }}</li>
+                        <li><i class="fas fa-stream"></i> <a href="{{ route('/') }}" style="color: #56BAF8!important">Category</a>/ {{ $readmore->categories->name }}</li>
                         <li><i class="fas fa-user"></i> {{ $readmore->user->name }}</li>
                         <li><i class="far fa-eye"></i> {{ $readmore->post_view }}</li>
                      </ul>
@@ -82,7 +82,7 @@
                         <div class="single_catagory_item category">
                            <ul class="list-unstyled">
                               @foreach ($categories as $all_category)
-                                 <li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
+                                 <li><a href="{!! route('single_category',$all_category->slug) !!}">{{ $all_category->name }}</a></li>
                               @endforeach
                            </ul>
                         </div>

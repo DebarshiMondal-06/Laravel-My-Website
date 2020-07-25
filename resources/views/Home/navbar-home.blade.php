@@ -23,7 +23,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                            <ul class="list-unstyled text-center" style="margin-top: -12px;">
                               @foreach ($categories as $all_category)
-                                 <li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
+                                 <li><a href="{!! route('single_category',$all_category->slug) !!}">{{ $all_category->name }}</a></li>
                               @endforeach
                            </ul>
                         </div>

@@ -24,7 +24,7 @@
 
    <section class="all_post section_padding">
       <div class="container" style="margin-top: -8%;">
-         <h1 class="h2 mb-5 text-gray-800"> <a href="" class="font-italic">Category</a>/{{ $category->name }}</h1>
+         <h1 class="h2 mb-5 text-gray-800"> <a href="{!! route('/') !!}" class="font-italic">Category</a>/{{ $category->name }}</h1>
          <div class="row">
             <div class="col-md-8">
                @foreach ($single_blog as $wise)
@@ -52,7 +52,7 @@
                      <div class="card-body">
                         <h4 class="h4 mt-2 mb-3 p-1 text-uppercase" style="text-decoration: underline;">Popular Post</h4>
                         @foreach ($popular_post as $popular)
-                           <p class="" style="line-height: 0.8;"><a href="{{ $popular->id }}">{{ $popular->MainTitle }}</a></p>
+                           <p class="" style="line-height: 0.8;"><a href="{!! route('readmore',$popular->slug) !!}">{{ $popular->MainTitle }}</a></p>
                            <div class="post-meta p-1" style="margin-top: -8px;">
                               <span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $popular->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;{{ $popular->created_at->diffforhumans() }}</span>
                            </div>
