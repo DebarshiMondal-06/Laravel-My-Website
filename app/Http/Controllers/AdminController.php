@@ -15,10 +15,11 @@ class AdminController extends Controller
       $users = User::all();
       $roles = Role::get();
       $category = Category::get();
-      $post = Post::get();
+      $post = Post::all();
       $post_published = Post::where('Status','Published')->get();
+      $post_not_published = Post::where('Status',NULL)->get();
       return view('Admin.dashboard', compact([
-         'users','roles','category','post','post_published'
+         'users','roles','category','post','post_published','post_not_published'
       ]));
    }
 

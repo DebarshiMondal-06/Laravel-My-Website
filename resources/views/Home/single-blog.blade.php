@@ -23,18 +23,18 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-8 posts-list">
-               <img src="{!! asset('public/storage/'.$readmore->post_image) !!}" alt="">
+               <img height="350px" width="700px" src="{!! asset('public/storage/'.$readmore->post_image) !!}" alt="">
                <div class="single-post">
                   <div class="feature-img">
                      <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
                   </div>
                   <div class="blog_details">
-                     <h2>Second divided from form fish beast made every of seas
-                        all gathered us saying he our
+                     <h2>{{ $readmore->MainTitle }}
                      </h2>
                      <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                        <li><i class="fas fa-stream"></i> <a href="{{ route('/') }}" style="color: #56BAF8!important">Category</a>/ {{ $readmore->categories->name }}</li>
+                        <li><i class="fas fa-user"></i> {{ $readmore->user->name }}</li>
+                        <li><i class="far fa-eye"></i> {{ $readmore->post_view }}</li>
                      </ul>
                      <p class="excert">
                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -82,7 +82,7 @@
                         <div class="single_catagory_item category">
                            <ul class="list-unstyled">
                               @foreach ($categories as $all_category)
-                                 <li><a href="{!! route('single_category',$all_category->id) !!}">{{ $all_category->name }}</a></li>
+                                 <li><a href="{!! route('single_category',$all_category->slug) !!}">{{ $all_category->name }}</a></li>
                               @endforeach
                            </ul>
                         </div>

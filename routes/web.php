@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 */
 
    Route::get('/','HomeController@index')->name('/');
-   Route::get('/categories-for-blog/{id}','HomeController@single_category')->name('single_category');
+   Route::get('/categories-for-blog/{slug}','HomeController@single_category')->name('single_category');
    Route::get('/categories-for-blog/single/{id}','HomeController@readmore_single')->name('readmore');
 
    Auth::routes();
@@ -33,10 +33,11 @@ use Illuminate\Http\Request;
    Route::middleware('auth')->group(function() {
       Route::get('/add-posts','PostController@add_posts')->name('add-posts');
       Route::post('/add-posts/check','PostController@store')->name('checked');
-      Route::get('/view-blog','PostController@view_blog')->name('view-blog');
+      Route::get('/not-published-blog','PostController@view_blog_not')->name('view-blog-not');
       Route::get('/view-blog/delete/{id}','PostController@delete')->name('delete-blog');
       Route::put('/view-blog/publish-this-blog/{id}','PostController@publish')->name('publish');
       Route::get('/view-blog/published-blogs','PostController@Published_blog')->name('published-blog-view');
+      Route::get('/view-all-blogs','PostController@view_blogs')->name('total-blogs');
    });
 
    Route::middleware(['auth','web'])->group(function() {

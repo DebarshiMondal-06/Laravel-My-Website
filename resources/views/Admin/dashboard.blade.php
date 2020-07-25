@@ -8,17 +8,17 @@
                <div class="card-body">
                   <div class="row align-items-center">
                      <div class="col-md-5">
-                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Total Blog Post</div>
-                        <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1">{{ $post->count() }} </div>
+                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Not Blog Post</div>
+                        <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1">{{ $post_not_published->count() }} </div>
                         <div class="">
-                           <a href="{!! route('view_users') !!}"> View Here </a>
+                           <a href="{!! route('view-blog-not') !!}"> View Here </a>
                         </div>
                      </div>
                      <div class="col-md-5 col-md-4">
                         <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Total Published</div>
                         <div class="h5 font-weight-bold text-gray-800 mb-2 mt-2 p-1">{{ $post_published->count() }} </div>
                         <div class="">
-                           <a href="{!! route('view_users') !!}"> View Here </a>
+                           <a href="{!! route('published-blog-view') !!}"> View Here </a>
                         </div>
                      </div>
                      <div class="col-md-2">
@@ -69,6 +69,26 @@
       </div>
 
       <div class="row">
+         <div class="col-xl-4  mb-3" style="height: 130px;">
+            <div class="card border-left-dark shadow h-100 py-1">
+               <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                     <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">Total Blogs Created</div>
+                        <div class="h5  font-weight-bold text-gray-800 mb-2 mt-2 p-1"> {{ $post->count() }} </div>
+                        <div class="">
+                           <a href="{!! route('total-blogs') !!}"> View Here </a>
+                        </div>
+                     </div>
+                     <div class="col-auto">
+                        <i class="fas fa-user-tag fa-2x text-gray-300"></i>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
          <div class="col-xl-4  mb-3" style="height: 130px;">
             <div class="card border-left-dark shadow h-100 py-1">
                <div class="card-body">
