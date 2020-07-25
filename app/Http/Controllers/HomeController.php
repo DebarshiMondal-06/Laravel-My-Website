@@ -27,7 +27,7 @@ class HomeController extends Controller
 
    public function index() {
       $categories = Category::all();
-      $posts = Post::orderby('created_at','DESC')->limit(3)->get();
+      $posts = Post::orderby('created_at','DESC')->limit(5)->get();
       return view('Home.index_page',compact('posts','categories'));
    }
 
@@ -49,18 +49,22 @@ class HomeController extends Controller
 
 
    public function readmore_single($id){
-      $readmore = Post::where('id',$id)->first();
+      $readmore = Post::where('slug',$id)->first();
       $categories = Category::all();
-
-      $blogKey = 'blog_'. $readmore->id;
-      if(!Session::has($blogKey)) {
-         $readmore->increment('post_view');
-         Session::put($blogKey,1);
+      if($readmore)
+      {
+         $blogKey = 'blog_'. $readmore->id;
+         if(!Session::has($blogKey)) {
+            $readmore->increment('post_view');
+            Session::put($blogKey,1);
+         }
+         return view('Home.single-blog',compact('readmore','categories'));
       }
-      return view('Home.single-blog',compact('readmore','categories'));
+      else {
+         return back();
+      }
+
    }
-
-
 
 
 

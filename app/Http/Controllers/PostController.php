@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
@@ -34,11 +35,18 @@ class PostController extends Controller
       return view('Post.view-blog-content',compact('post'));
    }
 
-   public function publish(Post $id) {
-      $id->Status = "Published";
-      $id->save();
+
+
+
+   public function publish($id) {
+      $change = Post::where('id',$id)->first();
+      $change->Status = "Published";
+      $change->slug = Str::slug($change->MainTitle, '-');
+      $change->save();
       return back();
    }
+
+
 
 
    public function Published_blog() {

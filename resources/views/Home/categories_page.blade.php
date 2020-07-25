@@ -19,7 +19,7 @@
    <!--::header part start::-->
 
    @include('Home.navbar-home')
-   
+
 
 
    <section class="all_post section_padding">
@@ -40,7 +40,7 @@
                                  <span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $wise->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;
                                     {{ $wise->created_at->diffforhumans() }} &nbsp;&nbsp;&nbsp; <i class="far fa-eye"></i>&nbsp;{{ $wise->post_view }}</span>
                                  </div>
-                                 <p class="mb-3 p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{{ route('readmore',$wise->id) }}"> Read More...</a></p>
+                                 <p class="mb-3 p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{{ route('readmore',$wise->slug) }}"> Read More...</a></p>
                               </div>
                            </div>
                         </div>
