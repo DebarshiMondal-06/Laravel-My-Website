@@ -36,14 +36,24 @@
                            <td><a href="{!! route('assign-role',$all_blogss->id) !!}">{{ $all_blogss->MainTitle }}</a></td>
                            <td>{!! Str::limit($all_blogss->content, 80) !!}</td>
                            <td>
-                              <img height="100px" src="{{ asset('public/storage/'.$all_blogss->post_image) }}" alt="picture">
+                              <img height="60px" width="70px" src="{{ asset('public/storage/'.$all_blogss->post_image) }}" alt="picture">
                            </td>
                            <td>{{ $all_blogss->created_at->diffforhumans() }}</td>
                            <td>{{ $all_blogss->updated_at->diffforhumans() }}</td>
                            <td>
-                              {{ ($all_blogss->Status == 'Published')? 'Published' : 'Not Published' }}
+                              @if ($all_blogss->Status == 'Published')
+                                 {{ 'Published' }}
+                              @else
+                                 <span class="font-weight-bold text-danger">{{ 'Not Published' }}</span>
+                              @endif
                            </td>
-                           <td> <a href="{!! route('delete-blog', $all_blogss->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>
+                           <form  action="{!! route('delete-blog',$all_blogss->id) !!}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger"> Delete </button>
+                           </form>
+                         </td>
                         </tr>
                      @endforeach
                   </tbody>
