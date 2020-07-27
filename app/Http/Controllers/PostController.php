@@ -23,7 +23,7 @@ class PostController extends Controller
 
    public function store() {
       $input = request()->validate([
-         'post_image' => 'file| required | max:100',
+         'post_image' => 'file| required | max:150',
          'content' => 'required',
          'MainTitle' => 'required',
          'categories_id' => 'required'

@@ -45,6 +45,7 @@
                               <th>Id</th>
                               <th>Name</th>
                               <th>slug</th>
+                              <th>Blog Post</th>
                               <th> Created On</th>
                               <th> Updated On</th>
                               <th> Delete Item </th>
@@ -57,6 +58,9 @@
                                  <td>{{ $all_category->id }}</td>
                                  <td>{{ $all_category->name }}</td>
                                  <td>{{ $all_category->slug }}</td>
+                                 <td>
+                                    {{ $all_category->posts->count() }} <a href="{!! route('modal-view',$all_category->id) !!}"><i class="far fa-eye"></i></a>
+                                 </td>
                                  <td>{{ $all_category->created_at->diffforhumans() }}</td>
                                  <td>{{ $all_category->updated_at->diffforhumans() }}</td>
                                  <td>
@@ -76,11 +80,10 @@
          </div>
          <div class="col"></div>
       </div>
-
    @endsection
 
    @section('scripts_tables')
-
+      
       <script type="text/javascript">
       $(document).ready(function() {
          $('#dataTable').DataTable();
