@@ -34,11 +34,17 @@
                            <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
                            <td>{!! Str::limit($all_posts->content, 80) !!}</td>
                            <td>
-                              <img height="100px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
+                              <img height="60px" width="70px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
                            </td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
                            <td><b>{{ $all_posts->Status }}</b></td>
-                           <td> <a href="{!! route('delete-blog', $all_posts->id) !!}"><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>
+                              <form  action="{!! route('delete-blog',$all_posts->id) !!}" method="post">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn btn-danger"> Delete </button>
+                              </form>
+                           </td>
                         </tr>
                      @endforeach
                   </tbody>

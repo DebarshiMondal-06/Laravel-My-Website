@@ -10,19 +10,20 @@ use App\Post;
 class PostController extends Controller
 {
    //
-   public function view_blogs(){
-      $all_blogs = Post::orderBy('created_at','DESC')->get();
-      return view('Post.view-all-blogs',compact('all_blogs'));
-   }
 
    public function add_posts() {
       $category = Category::all();
       return view('Post.Post_content', compact('category'));
    }
 
+   public function view_blogs(){
+      $all_blogs = Post::all()->sortByDesc('id');
+      return view('Post.view-all-blogs',['all_blogs'=>$all_blogs]);
+   }
+
    public function store() {
       $input = request()->validate([
-         'post_image' => 'file| required | max:100',
+         'post_image' => 'file| required | max:150',
          'content' => 'required',
          'MainTitle' => 'required',
          'categories_id' => 'required'
@@ -50,7 +51,7 @@ class PostController extends Controller
 
 
    public function Published_blog() {
-      $post_published = Post::Where('Status','Published')->orderBy('created_at','DESC')->get();
+      $post_published = Post::where('Status','Published')->get();
       return view('Post.published_blog',compact('post_published'));
    }
 
@@ -75,12 +76,6 @@ class PostController extends Controller
       $id->save();
       return back();
    }
-
-
-
-
-
-
 
 
 

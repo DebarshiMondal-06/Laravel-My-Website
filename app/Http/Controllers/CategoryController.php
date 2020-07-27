@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 use Session;
 class CategoryController extends Controller
 {
-      //
+   //
 
    public function create() {
       Category::create([
@@ -21,7 +22,11 @@ class CategoryController extends Controller
 
    public function  category() {
       $category_fetch = Category::all();
-      return view('Admin.create_categories',['category'=>$category_fetch]);
+      $post_fetch = Post::all();
+      return view('Admin.create_categories',[
+         'category'=>$category_fetch,
+         'posts'=>$post_fetch
+      ]);
    }
 
    public function delete(Category $id) {
@@ -33,7 +38,11 @@ class CategoryController extends Controller
          $id->delete();
          return back();
       }
+   }
 
-
+   public function modal($id) {
+      $view_category_name = Category::where('id',$id)->first();
+      $view_modal = Post::where('categories_id',$id)->get();
+      return view('Post.single-category-view',compact('view_modal','view_category_name'));
    }
 }

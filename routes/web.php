@@ -34,16 +34,17 @@ use Illuminate\Http\Request;
       Route::get('/add-posts','PostController@add_posts')->name('add-posts');
       Route::post('/add-posts/check','PostController@store')->name('checked');
       Route::get('/not-published-blog','PostController@view_blog_not')->name('view-blog-not');
-      Route::get('/view-blog/delete/{id}','PostController@delete')->name('delete-blog');
       Route::put('/view-blog/publish-this-blog/{id}','PostController@publish')->name('publish');
       Route::get('/view-blog/published-blogs','PostController@Published_blog')->name('published-blog-view');
       Route::get('/view-all-blogs','PostController@view_blogs')->name('total-blogs');
+      Route::delete('/view-all-blogs/{id}','PostController@delete')->name('delete-blog');
    });
 
    Route::middleware(['auth','web'])->group(function() {
       Route::post('/create_category','CategoryController@create')->name('create-category');
       Route::get('/create-view-categories','CategoryController@category')->name('view-create-category');
       Route::delete('/create-view-categories/{id}','CategoryController@delete')->name('delete-category');
+      Route::get('/create-view-categories/{id}','CategoryController@modal')->name('modal-view');
    });
 
    Route::middleware('auth')->group(function() {
