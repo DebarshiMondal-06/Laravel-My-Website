@@ -19,4 +19,11 @@ class Post extends Model
       return $this->belongsTo(Category::class);
    }
 
+   public function post_likes()
+   {
+      return $this->hasMany('App\Like');
+   }
+
+
+
 }
