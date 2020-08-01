@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Like;
 use Session;
 class HomeController extends Controller
 {
@@ -49,7 +50,9 @@ class HomeController extends Controller
 
 
    public function readmore_single($id){
+      $all_likes = Like::all();
       $readmore = Post::where('slug',$id)->first();
+      $likes = Like::where('post_id',$readmore->id)->where('user_id', auth()->user()->id )->first();
       $categories = Category::all();
       if($readmore)
       {
@@ -58,7 +61,7 @@ class HomeController extends Controller
             $readmore->increment('post_view');
             Session::put($blogKey,1);
          }
-         return view('Home.single-blog',compact('readmore','categories'));
+         return view('Home.single-blog',compact('readmore','categories','likes','all_likes'));
       }
       else {
          return back();
