@@ -41,6 +41,10 @@
                         should have to spend money on boot camp when you can get the MCSE study materials yourself at a
                         fraction of the camp price. However, who has the willpower
                      </p>
+                     <ul class="blog-info mt-3 mb-4">
+                        <li class="text-danger"><i class="fas fa-heart"></i> <span class="text-dark"> 1 </span></li>
+                        <li class="float-right mr-5" style="margin-top: -22px;"><i class="fas fa-thumbs-up"></i><a href=""> Like </a></li>
+                     </ul>
                   </div>
                </div>
                   <div class="comments-area">
