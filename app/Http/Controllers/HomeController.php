@@ -59,7 +59,7 @@ class HomeController extends Controller
          $blogKey = 'blog_'. $readmore->id;
          if(!Session::has($blogKey)) {
             $readmore->increment('post_view');
-            Session::put($blogKey,1);
+            Session::put($blogKey);
          }
          return view('Home.single-blog',compact('readmore','categories','likes','all_likes'));
       }
