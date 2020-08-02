@@ -71,13 +71,6 @@ class PostController extends Controller
 
    }
 
-   public function publish(Post $id) {
-      $id->Status = "Published";
-      $id->save();
-      return back();
-   }
-
-
 
 
 
