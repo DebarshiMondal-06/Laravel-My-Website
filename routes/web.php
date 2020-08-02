@@ -16,12 +16,12 @@ use Illuminate\Http\Request;
 
 Route::get('/','HomeController@index')->name('/');
 Route::get('/categories-for-blog/{slug}','HomeController@single_category')->name('single_category');
-Route::get('/categories-for-blog/single/{slug}','HomeController@readmore_single')->name('readmore');
+
 
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
-   Route::get('/categories-for-blog/single/{slug}','HomeController@readmore_single')->name('readmore');
+   Route::get('/categories-for-blog/single/{id}','HomeController@readmore_single')->name('readmore');
    Route::post('/categories-for-blog/single/liked','LikeController@like')->name('post_like');
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });
