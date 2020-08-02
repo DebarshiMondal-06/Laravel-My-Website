@@ -52,14 +52,14 @@ class HomeController extends Controller
    public function readmore_single($id){
       $all_likes = Like::all();
       $readmore = Post::where('slug',$id)->first();
-      $likes = Like::where('post_id',$readmore->id)->where('user_id', auth()->user()->id )->first();
+      $likes = Like::where('post_id',$readmore->id)->where('user_id', auth()->user()->id)->first();
       $categories = Category::all();
       if($readmore)
       {
          $blogKey = 'blog_'. $readmore->id;
          if(!Session::has($blogKey)) {
             $readmore->increment('post_view');
-            Session::put($blogKey);
+            Session::put($blogKey,1);
          }
          return view('Home.single-blog',compact('readmore','categories','likes','all_likes'));
       }
