@@ -26,11 +26,7 @@ class LoginController extends Controller
    *
    * @var string
    */
-   protected function registered(Request $request, $user)
-   {
-      return redirect()->intended($this->redirectPath());
-   }
-
+   protected $redirectTo = RouteServiceProvider::HOME;
    /**
    * Create a new controller instance.
    *
