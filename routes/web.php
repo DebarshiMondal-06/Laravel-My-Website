@@ -21,7 +21,7 @@ Route::get('/categories-for-blog/{slug}','HomeController@single_category')->name
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
-   Route::get('/categories-for-blog/single/{id}','HomeController@readmore_single')->name('readmore');
+   Route::get('/categories-for-blog/{category}/{title}','HomeController@readmore_single')->name('readmore');
    Route::post('/categories-for-blog/single/liked','LikeController@like')->name('post_like');
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });

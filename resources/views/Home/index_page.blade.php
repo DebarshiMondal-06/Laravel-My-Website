@@ -49,7 +49,7 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="contents order-md-1 pl-0">
-										<h2 class="title"><a href="{!! route('readmore',$all_posts->slug) !!}" class="text-dark">{{ $all_posts->MainTitle }}</a></h2>
+										<h2 class="title"><a href="{{ route('readmore', [ 'category' =>$all_posts->categories->slug , 'title' =>$all_posts->slug]) }}" class="text-dark">{{ $all_posts->MainTitle }}</a></h2>
 										<style>
 										.mb-1 a:hover{
 											color: red!important;
@@ -62,9 +62,14 @@
 										}
 										</style>
 										<p class="mb-1">Category/<a href="{!! route('single_category', $all_posts->categories->slug) !!}" id="info">{{ $all_posts->categories->name }}</a></p>
-										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{!! route('readmore', $all_posts->slug) !!}"> Read More...</a></p>
+										<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum
+
+											<a href="{{ route('readmore', [ 'category' =>$all_posts->categories->slug , 'title' =>$all_posts->slug]) }}"> Read More...</a></p>
+
 										<div class="post-meta">
-											<span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $all_posts->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;{{ $all_posts->created_at->diffforhumans() }}</span>
+											<span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $all_posts->user->name }} &nbsp;&nbsp;&nbsp;
+												<i class="text-dark far fa-clock"></i>&nbsp;{{ $all_posts->created_at->diffforhumans() }} &nbsp;&nbsp;
+												<i class="text-danger fas fa-heart"></i>&nbsp;{{ $all_posts->post_likes->count() }}</span>
 										</div>
 									</div>
 								</div>

@@ -47,9 +47,9 @@ class HomeController extends Controller
    }
 
 
-   public function readmore_single($id){
+   public function readmore_single($slugc,$slugt){
       $all_likes = Like::all();
-      $readmore = Post::where('slug',$id)->first();
+      $readmore = Post::where('slug',$slugt)->first();
       $likes = Like::where('post_id',$readmore->id)->where('user_id', auth()->user()->id)->first();
       $categories = Category::all();
       if($readmore)
