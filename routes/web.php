@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function() {
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth' , 'admin_role:Admin'])->group(function(){
    Route::get('/dashboard', 'AdminController@index')->name('admin_dashboard');
    Route::get('/view-users', 'AdminController@view_users')->name('view_users');
    Route::get('/assign-roles/{id}','AdminController@assign_roles')->name('assign-role');

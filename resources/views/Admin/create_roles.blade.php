@@ -54,6 +54,7 @@
                               <th>slug</th>
                               <th> Created On</th>
                               <th> Updated On</th>
+                              <th> Assigned </th>
                               <th> Delete Item </th>
                            </tr>
                         </thead>
@@ -66,6 +67,8 @@
                                  <td>{{ $all_roles->slug }}</td>
                                  <td>{{ $all_roles->created_at->diffforhumans() }}</td>
                                  <td>{{ $all_roles->updated_at->diffforhumans() }}</td>
+                                 <td>{{ $all_roles->user->count() }}</td>
+
                                  <td>
                                     <form class="" action="{!! route('delete-role',$all_roles->id) !!}" method="post">
                                        @csrf
