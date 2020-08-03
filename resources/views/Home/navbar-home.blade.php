@@ -31,6 +31,11 @@
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">About Me</a>
                      </li>
+                     @if (Auth::check())
+                        <li class="nav-item">
+                           <a class="nav-link" href="{!! route('admin_dashboard') !!}"> DashBoard </a>
+                        </li>
+                     @endif
                   </ul>
                </div>
                <div class="header_social_icon d-none d-lg-block">

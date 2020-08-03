@@ -40,7 +40,8 @@
                                  <span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $wise->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;
                                     {{ $wise->created_at->diffforhumans() }} &nbsp;&nbsp;&nbsp; <i class="far fa-eye"></i>&nbsp;{{ $wise->post_view }}</span>
                                  </div>
-                                 <p class="mb-3 p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum<a href="{{ route('readmore',$wise->slug) }}"> Read More...</a></p>
+                                 <p class="mb-3 p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum
+                                     <a href="{{ route('readmore', [ 'category' =>$wise->categories->slug , 'title' =>$wise->slug]) }}"> Read More...</a></p>
                               </div>
                            </div>
                         </div>
@@ -52,7 +53,7 @@
                      <div class="card-body">
                         <h4 class="h4 mt-2 mb-3 p-1 text-uppercase" style="text-decoration: underline;">Popular Post</h4>
                         @foreach ($popular_post as $popular)
-                           <p class="" style="line-height: 0.8;"><a href="{!! route('readmore',$popular->slug) !!}">{{ $popular->MainTitle }}</a></p>
+                           <p class="" style="line-height: 0.8;"><a href="{{ route('readmore', [ 'category' =>$popular->categories->slug , 'title' =>$popular->slug]) }}">{{ $popular->MainTitle }}</a></p>
                            <div class="post-meta p-1" style="margin-top: -8px;">
                               <span class="d-block text-info"><li class=" text-dark fas fa-user"></li>&nbsp;{{ $popular->user->name }} &nbsp;&nbsp;&nbsp; <i class="text-dark far fa-clock"></i>&nbsp;{{ $popular->created_at->diffforhumans() }}</span>
                            </div>
