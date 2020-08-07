@@ -30,6 +30,11 @@ class HomeController extends Controller
       return view('Home.index_page',compact('posts','categories'));
    }
 
+   public function about_me() {
+      $categories = Category::all();
+      return view('Home.about_me',compact('categories'));
+   }
+
    public function single_category($slug) {
 
       $categories = Category::all();

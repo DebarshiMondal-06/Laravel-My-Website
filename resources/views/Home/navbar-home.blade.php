@@ -29,7 +29,7 @@
                         </div>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">About Me</a>
+                        <a class="nav-link" href="{!! route('about_me') !!}">About Me</a>
                      </li>
                      @if (Auth::check())
                         <li class="nav-item">
