@@ -58,7 +58,7 @@ class PostController extends Controller
    public function delete(Post $id) {
       if((auth()->user()->id == $id->user_id))
       {
-         $path = public_path(). '/storage/' . $id->post_image;
+         $path = 'storage/app/public/' . $id->post_image;
          if(file_exists($path)) {
             unlink($path);
             $id->delete();

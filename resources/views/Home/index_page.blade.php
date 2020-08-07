@@ -13,6 +13,10 @@
 	{{-- <link rel="stylesheet" href="{!! asset('css/style.css') !!}"> --}}
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
 </head>
 
 <body>
@@ -21,7 +25,7 @@
 	<!-- Header part end-->
 
 	<!-- breadcrumb start-->
-	<section class="breadcrumb breadcrumb_bg align-items-center">
+	<section class="breadcrumb breadcrumb_bg align-items-center animate__animated animate__zoomIn">
 		<div class="container">
 			<div class="row align-items-center justify-content-between">
 				<div class="col-sm-6">
@@ -43,7 +47,7 @@
 	<section class="all_post section_padding">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-8 animate__animated animate__zoomIn">
 					@foreach ($posts as $all_posts)
 						<div class="post-entry-2 d-flex">
 							<div class="row">
@@ -91,7 +95,7 @@
 					@endforeach
 				</div>
 
-				<div class="col-lg-4">
+				<div class="col-lg-4 animate__animated animate__bounceInUp">
 					<div class="sidebar_widget">
 						<div class="single_sidebar_wiget search_form_widget" style="">
 							<label for=""><i class="fas fa-pen-nib fa-2x"></i><a href="login" style="">&nbsp;<span style="font-size: 1.2em;">Write a Post</span> </a></label>

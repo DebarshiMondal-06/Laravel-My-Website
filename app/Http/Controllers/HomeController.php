@@ -31,8 +31,10 @@ class HomeController extends Controller
    }
 
    public function single_category($slug) {
+
       $categories = Category::all();
       $category = Category::where('slug',$slug)->first();
+
       $single = Post::where(['categories_id'=>$category->id,'Status'=>'Published'])->orderby('created_at','DESC')->get();
       $popular_post = Post::where(['categories_id'=>$category->id,'Status'=>'Published'])->orderby('created_at','DESC')->take(5)->get();
       if ($single) {
@@ -44,7 +46,9 @@ class HomeController extends Controller
             'categories'=>$categories
          ]);
       }
+
    }
+
 
 
    public function readmore_single($slugc,$slugt){
