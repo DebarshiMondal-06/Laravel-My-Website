@@ -21,7 +21,7 @@
                         <th> Image </th>
                         <th> Updated On</th>
                         <th> Status </th>
-                        <th> Delete Item </th>
+                        <th> Delete Ite </th>
                      </tr>
                   </thead>
 
@@ -34,7 +34,7 @@
                            <td><a href="{!! route('assign-role',$all_posts->id) !!}">{{ $all_posts->MainTitle }}</a></td>
                            <td>{!! Str::limit($all_posts->content, 80) !!}</td>
                            <td>
-                              <img height="60px" width="70px" src="{{ asset('public/storage/'.$all_posts->post_image) }}" alt="picture">
+                              <img height="60px" width="70px" src="{{ asset('storage/app/public/' .$all_posts->post_image) }}" alt="picture">
                            </td>
                            <td>{{ $all_posts->updated_at->diffforhumans() }}</td>
                            <td><b>{{ $all_posts->Status }}</b></td>
