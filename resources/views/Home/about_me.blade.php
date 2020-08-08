@@ -1,13 +1,27 @@
 <x-index_home>
    @section('section')
       @include('Home.navbar-home')
+      <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
       <div class="container mt-5">
          <div class="card shadow mb-4">
             <div class="card-body">
                <div class="row">
                   <div class="col-sm-3 text-center">
-                     <img class="mt-2 card-img-top mb-1" style="border-radius: 20px; max-height: 250px;" src="{{ asset('public/img/IMG_20200114_165243.jpg') }}" alt="">
-                     <br><h2 class="h4 mt-2"> Jr. Web Developer</h2>
+                     <style media="screen">
+                        .card-img-top{
+                           border-radius: 20px;
+                           max-height: 250px;
+                        }
+                        .para{
+                           color: black;
+                           line-height: 1.4;
+                           font-size: 1.3em;
+                           font-family: 'Courgette', cursive;
+                        }
+                     </style>
+                     <img class="mt-2 card-img-top mb-1" src="{{ asset('public/img/IMG_20200114_165243.jpg') }}" alt="">
+                     <br><h2 class="h4 mt-2" style="font-family: 'Courgette', cursive;"> Jr. Web Developer</h2>
                      <h5 style="color: black;"> +916296819112 </h5>
                      <h5 style="color: black;"> debopiku1122@gmail.com </h5>
                   </div>
@@ -15,8 +29,8 @@
                   <br>
                   <div class="col-md-8">
                      <h3 class="h2 mt-2">Who Am I?</h3>
-                     <div class="ml-3">
-                        <p style="color: black!important;"> Well, Serious and Passionate Web developer Lorem ipsum dolor sit amet,
+                     <div class="ml-4">
+                        <p class="para"> Well, Serious and Passionate Web developer Lorem ipsum dolor sit amet,
                            consectetur adipisicing elit. Esse officiis asperiores quis voluptas nobis, officia debitis reprehenderit
                            nostrum ex maxime, ipsam voluptatem voluptatum consequatur! Quia asperiores, laborum rem aliquid nihil nesciunt,
                            facilis, ab illo recusandae atque incidunt minus accusamus ratione! Lorem ipsum dolor sit amet, consectetur
@@ -48,12 +62,6 @@
                padding:19px 15px;
                border-bottom:1px solid #eee;
                background-color: #428bca;
-               -webkit-border-top-left-radius: 5px;
-               -webkit-border-top-right-radius: 5px;
-               -moz-border-radius-topleft: 5px;
-               -moz-border-radius-topright: 5px;
-               border-top-left-radius: 5px;
-               border-top-right-radius: 5px;
                max-width: 100%;
             }
          </style>
@@ -62,7 +70,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                <div class="modal-content">
                   <div class="modal-header modal-header-primary">
-                     <h5 class="modal-title" id="exampleModalLongTitle">Contact Me!</h5>
+                     <h5 class="modal-title" id="exampleModalLongTitle" style="font-family: 'Courgette', cursive;">Contact Me!</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                      </button>
