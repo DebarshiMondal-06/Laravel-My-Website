@@ -9,16 +9,16 @@
                <div class="row">
                   <div class="col-sm-3 text-center">
                      <style media="screen">
-                        .card-img-top{
-                           border-radius: 20px;
-                           max-height: 250px;
-                        }
-                        .para{
-                           color: black;
-                           line-height: 1.4;
-                           font-size: 1.3em;
-                           font-family: 'Courgette', cursive;
-                        }
+                     .card-img-top{
+                        border-radius: 20px;
+                        max-height: 250px;
+                     }
+                     .para{
+                        color: black;
+                        line-height: 1.4;
+                        font-size: 1.3em;
+                        font-family: 'Courgette', cursive;
+                     }
                      </style>
                      <img class="mt-2 card-img-top mb-1" src="{{ asset('public/img/IMG_20200114_165243.jpg') }}" alt="">
                      <br><h2 class="h4 mt-2" style="font-family: 'Courgette', cursive;"> Jr. Web Developer</h2>
@@ -64,42 +64,43 @@
                background-color: #428bca;
                max-width: 100%;
             }
-         </style>
-         <!-- Modal -->
-         <div class="modal fade" style="border-radius: 15px;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-               <div class="modal-content">
-                  <div class="modal-header modal-header-primary">
-                     <h5 class="modal-title" id="exampleModalLongTitle" style="font-family: 'Courgette', cursive;">Contact Me!</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="" action="index.html" method="post">
-                        <div class="input-group mb-3">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">@</span>
+            </style>
+            <!-- Modal -->
+            <div class="modal fade" style="border-radius: 15px;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header modal-header-primary">
+                        <h5 class="modal-title" id="exampleModalLongTitle" style="font-family: 'Courgette', cursive;">Contact Me!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        <form class="" action="{!! route('mailsend') !!}" method="post">
+                           @csrf
+                           <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text" id="basic-addon1">@</span>
+                              </div>
+                              <input type="text" required name="username" class="form-control" placeholder="Username">
                            </div>
-                           <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
 
-                        <div class="input-group mb-3">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                           <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                              </div>
+                              <input type="email" required name="email" class="form-control" placeholder="Provide Your Mail">
                            </div>
-                           <input type="text" class="form-control" placeholder="Username" aria-label="Your Mail" aria-describedby="basic-addon1">
-                        </div>
-                        <textarea placeholder="Put a Message!" class="form-control" name="name" rows="8" cols="80"></textarea>
-                        <br>
-                        <div class="text-center">
-                           <button style="width: 120px;" type="submit" class="btn btn-primary"> Send <i class="fas fa-paper-plane"></i> </button>
-                        </div>
-                     </form>
+                           <textarea required placeholder="Put a Message!" class="form-control" name="message" rows="8" cols="80"></textarea>
+                           <br>
+                           <div class="text-center">
+                              <button style="width: 120px;" type="submit" class="btn btn-primary"> Send <i class="fas fa-paper-plane"></i> </button>
+                           </div>
+                        </form>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
 
-      @endsection
-   </x-index_home>
+         @endsection
+      </x-index_home>
