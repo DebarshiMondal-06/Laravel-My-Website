@@ -73,6 +73,12 @@
       <span>Users</span>
    </a>
 </li>
+<li class="nav-item">
+   <a class="nav-link" href="{!! route('all_Mail') !!}">
+      <i class="fas fa-envelope fa-fw"></i>
+      <span>All Mail</span>
+   </a>
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

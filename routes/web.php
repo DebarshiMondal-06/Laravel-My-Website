@@ -28,12 +28,16 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::middleware(['auth' , 'admin_role:Admin'])->group(function(){
+   Route::get('/dashboard/mail/{id}', 'MailController@mail_checked')->name('mail_checked');
+   Route::get('/all-mail', 'MailController@all_mail')->name('all_Mail');
+
    Route::get('/dashboard', 'AdminController@index')->name('admin_dashboard');
    Route::get('/view-users', 'AdminController@view_users')->name('view_users');
    Route::get('/assign-roles/{id}','AdminController@assign_roles')->name('assign-role');
    Route::put('/assign-roles/assigned/{id}','AdminController@assigned')->name('assigned');
    Route::delete('/assign-roles/detached/{id}','AdminController@detached')->name('detached');
    Route::get('/view-user-roles','AdminController@view_roles_user')->name('view-user-roles');
+
 });
 
 
