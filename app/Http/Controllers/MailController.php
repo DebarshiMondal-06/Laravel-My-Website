@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Emailsend;
 class MailController extends Controller
 {
     //
@@ -18,6 +19,13 @@ class MailController extends Controller
          $message->to($to_email,$to_name)
          ->subject('DΣBΛЯƧΉI - Thanks For Query');
       });
+
+      Emailsend::create([
+         'username' => $request->username,
+         'useremail' => $request->email,
+         'message' => $request->message
+      ]);
+
       return redirect()->route('about_me');
    }
 
