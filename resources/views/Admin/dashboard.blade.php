@@ -1,6 +1,25 @@
 <x-admin_index>
+   @section('mail')
+      <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fas fa-envelope fa-fw text-dark"></i>
+         <!-- Counter - Messages -->
+         <span class="badge badge-danger badge-counter">{{ $emailnotify->count() }}</span>
+      </a>
+      <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+         <h6 class="dropdown-header">
+            Message Center
+         </h6>
+         @foreach ($emailnotify as $new_mails)
+            <a class="dropdown-item d-flex align-items-center" href="{!! route('mail_checked',$new_mails->id) !!}">
+               <div>
+                  <div class="text-truncate text-primary"><b class="text-dark">Message:</b> {{ $new_mails->message }}</div>
+                  <div class="small text-dark font-weight-bold"><b class="text-dark">By, </b> &nbsp;{{ $new_mails->username }} &nbsp;&nbsp;<span class="text-info">{{ $new_mails->created_at->diffforhumans() }} </span></div>
+               </div>
+            </a>
+         @endforeach
+      </div>
+   @endsection
    @section('dashboard_content')
-
       <h1 class="h3 mb-4 text-gray-800"> DashBoard </h1>
       <div class="row">
          <div class="col-xl-4 col-md-6 mb-3" style="height: 130px;">

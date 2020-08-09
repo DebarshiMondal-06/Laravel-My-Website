@@ -7,11 +7,14 @@ use App\User;
 use App\Role;
 use App\Category;
 use App\Post;
+use App\Emailsend;
 class AdminController extends Controller
 {
    //
 
+
    public function index() {
+      $emailnotify = Emailsend::where('status',0)->get();
       $users = User::all();
       $roles = Role::get();
       $category = Category::get();
@@ -19,7 +22,13 @@ class AdminController extends Controller
       $post_published = Post::where('Status','Published')->get();
       $post_not_published = Post::where('Status',NULL)->get();
       return view('Admin.dashboard', compact([
-         'users','roles','category','post','post_published','post_not_published'
+         'users',
+         'roles',
+         'category',
+         'post',
+         'post_published',
+         'post_not_published',
+         'emailnotify',
       ]));
    }
 
