@@ -55,7 +55,7 @@
                         <tbody class="text-center">
                            @foreach ($category as $all_category)
                               <tr>
-                                 <td>{{ $all_category->id }}</td>
+                                 <td><a href=""><i class="fas fa-edit"></i></a> {{ $all_category->id }}</td>
                                  <td>{{ $all_category->name }}</td>
                                  <td>{{ $all_category->slug }}</td>
                                  <td>
@@ -83,7 +83,7 @@
    @endsection
 
    @section('scripts_tables')
-      
+
       <script type="text/javascript">
       $(document).ready(function() {
          $('#dataTable').DataTable();
