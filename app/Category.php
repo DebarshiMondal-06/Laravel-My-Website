@@ -25,5 +25,10 @@ class Category extends Model
       return $this->hasMany('App\Post','categories_id');
    }
 
+   public function users()
+   {
+      return $this->belongsTo('App\User');
+   }
+
 
 }
