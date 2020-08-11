@@ -16,7 +16,7 @@ class Admin
     public function handle($request, Closure $next, $role)
     {
       if(!$request->user()->admin_role($role)) {
-         abort(403,'Not Authorized');
+         return redirect()->route('about_me');
       }
         return $next($request);
     }
