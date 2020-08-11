@@ -19,15 +19,15 @@ Route::get('/categories-for-blog/{slug}','HomeController@single_category')->name
 Route::get('/about-me','HomeController@about_me')->name('about_me');
 Route::post('/about-me/mail','MailController@mailsend')->name('mailsend');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth','verified'])->group(function() {
    Route::get('/categories-for-blog/{category}/{title}','HomeController@readmore_single')->name('readmore');
    Route::post('/categories-for-blog/single/liked','LikeController@like')->name('post_like');
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });
 
-Route::middleware(['auth' , 'admin_role:Admin'])->group(function(){
+Route::middleware(['auth' , 'admin_role:Admin','verified'])->group(function(){
    Route::get('/dashboard/mail/{id}', 'MailController@mail_checked')->name('mail_checked');
    Route::get('/all-mail', 'MailController@all_mail')->name('all_Mail');
 
