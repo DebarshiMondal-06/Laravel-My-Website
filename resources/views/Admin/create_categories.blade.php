@@ -55,7 +55,7 @@
                         <tbody class="text-center">
                            @foreach ($category as $all_category)
                               <tr>
-                                 <td><a href=""><i class="fas fa-edit"></i></a> {{ $all_category->id }}</td>
+                                 <td><a href=""  data-toggle="modal" data-target="#{{ $all_category->name }}"><i class="fas fa-edit"></i></a>{{ $all_category->id }}</td>
                                  <td>{{ $all_category->name }}</td>
                                  <td>{{ $all_category->slug }}</td>
                                  <td>
@@ -80,6 +80,38 @@
          </div>
          <div class="col"></div>
       </div>
+
+      @foreach ($category as $all_category)
+         <div class="modal fade" id="{{ $all_category->name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <form class="" action="{!! route('edit_c',$all_category->id) !!}" method="post">
+                        @csrf
+                        @method('PUT')
+                        {{ $all_category->id }}
+                        <div class="form-group">
+                           <input class="form-control" name="name" type="text" value="{{ $all_category->name}}">
+                           @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                              </span>
+                           @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      @endforeach
+
    @endsection
 
    @section('scripts_tables')

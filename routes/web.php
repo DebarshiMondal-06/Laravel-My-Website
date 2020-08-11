@@ -56,6 +56,7 @@ Route::middleware(['auth','web'])->group(function() {
    Route::get('/create-view-categories','CategoryController@category')->name('view-create-category');
    Route::delete('/create-view-categories/{id}','CategoryController@delete')->name('delete-category');
    Route::get('/create-view-categories/{id}','CategoryController@modal')->name('modal-view');
+   Route::put('/create-view-categories/{id}','CategoryController@edit')->name('edit_c');
 });
 
 Route::middleware('auth')->group(function() {

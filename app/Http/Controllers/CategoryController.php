@@ -29,6 +29,17 @@ class CategoryController extends Controller
       ]);
    }
 
+   public function edit($id) {
+      request()->validate([
+         'name' => 'required | min:5',
+      ]);
+      $category = Category::find($id);
+      $category->name = request('name');
+      $category->slug = request('name');
+      $category->save();
+      return back();
+   }
+
    public function delete(Category $id) {
       if (!($id->user_id == auth()->user()->id))
       {
