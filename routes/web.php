@@ -27,7 +27,7 @@ Route::middleware(['auth','verified'])->group(function() {
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });
 
-Route::middleware(['auth' , 'admin_role:Admin','verified'])->group(function(){
+Route::middleware(['auth' , 'verified'])->group(function(){
    Route::get('/dashboard/mail/{id}', 'MailController@mail_checked')->name('mail_checked');
    Route::get('/all-mail', 'MailController@all_mail')->name('all_Mail');
 
