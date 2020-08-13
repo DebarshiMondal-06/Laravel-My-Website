@@ -82,8 +82,10 @@
 				<div class="container-fluid">
 					@yield('dashboard_content')
 					@yield('view_users')
-
 					@yield('content')
+					@if (!(auth()->user()->admin_role('admin')))
+						@yield('user-dashboard')
+					@endif
 				</div>
 				<!-- End of Main Content -->
 			</div>

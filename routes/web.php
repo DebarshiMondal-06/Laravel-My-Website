@@ -42,6 +42,7 @@ Route::middleware(['auth','admin_role:admin'])->group(function(){
 
 Route::middleware('auth')->group(function() {
    Route::get('/user-dashboard','UserController@index')->name('user_dashboard');
+   Route::get('/user-dashboard/blogposted','UserController@post')->name('user_specefic_post');
 });
 
 Route::middleware('auth','admin_role:admin')->group(function() {
