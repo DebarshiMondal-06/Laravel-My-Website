@@ -11,6 +11,6 @@ class UserController extends Controller
    }
 
    public function post() {
-      return view('User.user-dashboard');
+      return view('User.user_post');
    }
 }
