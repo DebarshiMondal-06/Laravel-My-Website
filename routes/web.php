@@ -21,13 +21,13 @@ Route::post('/about-me/mail','MailController@mailsend')->name('mailsend');
 
 Auth::routes(['verify' => true]);
 
-Route::middleware(['auth','verified'])->group(function() {
+Route::middleware(['auth'])->group(function() {
    Route::get('/categories-for-blog/{category}/{title}','HomeController@readmore_single')->name('readmore');
    Route::post('/categories-for-blog/single/liked','LikeController@like')->name('post_like');
    Route::delete('/categories-for-blog/single/dislike/{id}','LikeController@dislike')->name('post_dislike');
 });
 
-Route::middleware(['auth' , 'verified'])->group(function(){
+Route::middleware(['auth','admin_role:admin'])->group(function(){
    Route::get('/dashboard/mail/{id}', 'MailController@mail_checked')->name('mail_checked');
    Route::get('/all-mail', 'MailController@all_mail')->name('all_Mail');
 
@@ -40,8 +40,11 @@ Route::middleware(['auth' , 'verified'])->group(function(){
 
 });
 
-
 Route::middleware('auth')->group(function() {
+   Route::get('/user-dashboard','UserController@index')->name('user_dashboard');
+});
+
+Route::middleware('auth','admin_role:admin')->group(function() {
    Route::get('/add-posts','PostController@add_posts')->name('add-posts');
    Route::post('/add-posts/check','PostController@store')->name('checked');
    Route::get('/not-published-blog','PostController@view_blog_not')->name('view-blog-not');
@@ -51,7 +54,7 @@ Route::middleware('auth')->group(function() {
    Route::delete('/view-all-blogs/{id}','PostController@delete')->name('delete-blog');
 });
 
-Route::middleware(['auth','web'])->group(function() {
+Route::middleware(['auth','admin_role:admin'])->group(function() {
    Route::post('/create_category','CategoryController@create')->name('create-category');
    Route::get('/create-view-categories','CategoryController@category')->name('view-create-category');
    Route::delete('/create-view-categories/{id}','CategoryController@delete')->name('delete-category');
@@ -59,7 +62,7 @@ Route::middleware(['auth','web'])->group(function() {
    Route::put('/create-view-categories/{id}','CategoryController@edit')->name('edit_c');
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth','admin_role:admin')->group(function() {
    Route::get('/view-roles','RoleController@index')->name('role-view');
    Route::post('/create-roles','RoleController@create')->name('create-role');
    Route::delete('/create-roles/{id}','RoleController@delete')->name('delete-role');

@@ -16,7 +16,7 @@ class Admin
     public function handle($request, Closure $next, $role)
     {
       if(!$request->user()->admin_role($role)) {
-         return redirect()->route('about_me');
+         return redirect()->route('user_dashboard');
       }
         return $next($request);
     }
