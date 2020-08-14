@@ -42,10 +42,11 @@ Route::middleware(['auth','admin_role:admin'])->group(function(){
 
 Route::middleware('auth')->group(function() {
    Route::get('/user-dashboard','UserController@index')->name('user_dashboard');
-   Route::get('/user-dashboard/blogposted','UserController@post')->name('user_specefic_post');
+   Route::get('/user-dashboard/create-post','UserController@create')->name('user_post_create');
+   Route::get('/user-dashboard/blog-posted','UserController@post_view')->name('user_blog_posted');
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth','admin_role:admin'])->group(function() {
    Route::get('/add-posts','PostController@add_posts')->name('add-posts');
    Route::post('/add-posts/check','PostController@store')->name('checked');
    Route::get('/not-published-blog','PostController@view_blog_not')->name('view-blog-not');
@@ -63,7 +64,7 @@ Route::middleware(['auth','admin_role:admin'])->group(function() {
    Route::put('/create-view-categories/{id}','CategoryController@edit')->name('edit_c');
 });
 
-Route::middleware('auth','admin_role:admin')->group(function() {
+Route::middleware(['auth','admin_role:admin'])->group(function() {
    Route::get('/view-roles','RoleController@index')->name('role-view');
    Route::post('/create-roles','RoleController@create')->name('create-role');
    Route::delete('/create-roles/{id}','RoleController@delete')->name('delete-role');

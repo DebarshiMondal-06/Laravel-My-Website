@@ -10,7 +10,11 @@ class UserController extends Controller
       return view('User.user-dashboard');
    }
 
-   public function post() {
-      return view('User.user_post');
+   public function create() {
+      return view('User.user_post_create');
+   }
+
+   public function post_view() {
+      return view('User.user_blog_post');
    }
 }
