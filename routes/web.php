@@ -19,7 +19,7 @@ Route::get('/categories-for-blog/{slug}','HomeController@single_category')->name
 Route::get('/about-me','HomeController@about_me')->name('about_me');
 Route::post('/about-me/mail','MailController@mailsend')->name('mailsend');
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
    Route::get('/categories-for-blog/{category}/{title}','HomeController@readmore_single')->name('readmore');

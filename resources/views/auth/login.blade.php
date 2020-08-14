@@ -39,26 +39,29 @@
                                           <label class="custom-control-label" for="customCheck">Remember Me</label>
                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                       Login
-                                    </button>
-                                    <hr>
-                                 </form>
-                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                       {{ __('Forgot Your Password?') }}
-                                    </a>
-                                 @endif
-                                 <div class="text-center mt-4">
-                                    <a class="small" href="{!! route('register') !!}">Create an Account!</a>
-                                 </div>
+
+                                    <button type="submit" id="color" class="btn btn-dark btn-user btn-block shadow" style="
+                                    background: linear-gradient(to right, #f5af19, #f12711);
+                                    ">
+                                    <span class="text-white" style="font-size: 1.4em;"> Login Here </span>
+                                 </button>
+                                 <hr>
+                              </form>
+                              {{-- @if (Route::has('password.request'))
+                                 <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                 </a>
+                              @endif --}}
+                              <div class="text-center mt-4">
+                                 <a class="small" href="{!! route('register') !!}">Create an Account!</a>
                               </div>
                            </div>
-                           <div class="col-lg-2"></div>
                         </div>
+                        <div class="col-lg-2"></div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      @endsection
+      </div>
+   @endsection
