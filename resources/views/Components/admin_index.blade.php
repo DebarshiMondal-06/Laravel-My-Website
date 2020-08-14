@@ -84,10 +84,12 @@
 
 					<!-- Begin Page Content -->
 					<div class="container-fluid">
-						@yield('dashboard_content')
-						@yield('view_users')
 						@yield('content')
-						@if(!(auth()->user()->admin_role('admin')))
+						@if((auth()->user()->admin_role('admin')))
+							@yield('dashboard_content')
+							@yield('view_users')
+
+						@else
 							@yield('user-dashboard')
 						@endif
 					</div>

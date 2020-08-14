@@ -31,14 +31,16 @@
                      <li class="nav-item">
                         <a class="nav-link" href="{!! route('about_me') !!}">About Me</a>
                      </li>
-                     @if (auth()->user()->admin_role('admin'))
-                        <li class="nav-item">
-                           <a class="nav-link" href="{!! route('admin_dashboard') !!}"> DashBoard </a>
-                        </li>
-                     @else
-                        <li class="nav-item">
-                           <a class="nav-link" href="{!! route('user_dashboard') !!}"> DashBoard </a>
-                        </li>
+                     @if (Auth::check())
+                        @if (auth()->user()->admin_role('admin'))
+                           <li class="nav-item">
+                              <a class="nav-link" href="{!! route('admin_dashboard') !!}"> DashBoard </a>
+                           </li>
+                        @else
+                           <li class="nav-item">
+                              <a class="nav-link" href="{!! route('user_dashboard') !!}"> DashBoard </a>
+                           </li>
+                        @endif
                      @endif
                   </ul>
                </div>

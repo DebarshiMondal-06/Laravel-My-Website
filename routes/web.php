@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function() {
    Route::get('/user-dashboard/blogposted','UserController@post')->name('user_specefic_post');
 });
 
-Route::middleware('auth','admin_role:admin')->group(function() {
+Route::middleware('auth')->group(function() {
    Route::get('/add-posts','PostController@add_posts')->name('add-posts');
    Route::post('/add-posts/check','PostController@store')->name('checked');
    Route::get('/not-published-blog','PostController@view_blog_not')->name('view-blog-not');
