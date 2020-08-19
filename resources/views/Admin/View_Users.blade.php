@@ -35,7 +35,13 @@
                            <td>{{ $all_users->created_at->diffforhumans() }}</td>
                            <td>{{ $all_users->updated_at->diffforhumans() }}</td>
                            <td><a class="font-weight-bold text-success" href="">Approved</a></td>
-                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>
+                              <form action="{!! route('view_users_delete', $all_users->id) !!}" method="post">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button class="btn btn-danger"> Delete </button>
+                              </form>
+                           </td>
                         </tr>
                      @endforeach
                   </tbody>

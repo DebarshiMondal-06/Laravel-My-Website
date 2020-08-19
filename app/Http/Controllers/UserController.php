@@ -17,4 +17,10 @@ class UserController extends Controller
    public function post_view() {
       return view('User.user_blog_post');
    }
+
+   
+
+
+
+
 }

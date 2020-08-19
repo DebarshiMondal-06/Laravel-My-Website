@@ -33,6 +33,7 @@ Route::middleware(['auth','admin_role:admin'])->group(function(){
 
    Route::get('/dashboard', 'AdminController@index')->name('admin_dashboard');
    Route::get('/view-users', 'AdminController@view_users')->name('view_users');
+   Route::delete('/view-users/{id}', 'AdminController@users_delete')->name('view_users_delete');
    Route::get('/assign-roles/{id}','AdminController@assign_roles')->name('assign-role');
    Route::put('/assign-roles/assigned/{id}','AdminController@assigned')->name('assigned');
    Route::delete('/assign-roles/detached/{id}','AdminController@detached')->name('detached');
