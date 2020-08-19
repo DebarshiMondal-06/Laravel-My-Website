@@ -69,4 +69,5 @@ Route::middleware(['auth','admin_role:admin'])->group(function() {
    Route::get('/view-roles','RoleController@index')->name('role-view');
    Route::post('/create-roles','RoleController@create')->name('create-role');
    Route::delete('/create-roles/{id}','RoleController@delete')->name('delete-role');
+   Route::put('/create-roles/edit/{id}','RoleController@edit')->name('edit-role');
 });

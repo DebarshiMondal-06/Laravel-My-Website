@@ -98,11 +98,6 @@
                         {{ $all_category->id }}
                         <div class="form-group">
                            <input class="form-control" name="name" type="text" value="{{ $all_category->name}}">
-                           @error('name')
-                              <span class="invalid-feedback" role="alert">
-                                 <strong>{{ $message }}</strong>
-                              </span>
-                           @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                      </form>

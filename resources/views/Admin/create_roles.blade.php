@@ -62,7 +62,7 @@
                         <tbody class="text-center">
                            @foreach ($roles as $all_roles)
                               <tr>
-                                 <td><a href="{!! route('') !!}"><i class="fas fa-edit"></i></a> {{ $all_roles->id }}</td>
+                                 <td><a href="" data-toggle="modal" data-target="#{{ $all_roles->name }}"><i class="fas fa-edit"></i></a> {{ $all_roles->id }}</td>
                                  <td>{{ $all_roles->name }}</td>
                                  <td>{{ $all_roles->slug }}</td>
                                  <td>{{ $all_roles->created_at->diffforhumans() }}</td>
@@ -86,6 +86,31 @@
          </div>
          <div class="col"></div>
       </div>
+
+      @foreach ($roles as $all_roles)
+         <div class="modal fade" id="{{ $all_roles->name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <form class="" action="{!! route('edit-role',$all_roles->id) !!}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                           <input class="form-control" name="name" type="text" value="{{ $all_roles->name}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      @endforeach
 
    @endsection
 
