@@ -62,7 +62,7 @@
                         <tbody class="text-center">
                            @foreach ($roles as $all_roles)
                               <tr>
-                                 <td>{{ $all_roles->id }}</td>
+                                 <td><a href="{!! route('') !!}"><i class="fas fa-edit"></i></a> {{ $all_roles->id }}</td>
                                  <td>{{ $all_roles->name }}</td>
                                  <td>{{ $all_roles->slug }}</td>
                                  <td>{{ $all_roles->created_at->diffforhumans() }}</td>
