@@ -6,21 +6,23 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   public function index() {
+   public function index()
+   {
       return view('User.user-dashboard');
    }
 
-   public function create() {
+   public function create()
+   {
       return view('User.user_post_create');
    }
 
-   public function post_view() {
+   public function post_view()
+   {
       return view('User.user_blog_post');
    }
 
-   
-
-
-
-
+   public function view_profile()
+   {
+      return view('User.user_profile');
+   }
 }
