@@ -1,6 +1,5 @@
 <x-admin_index>
    @section('view_users')
-
       <h1 class="h3 mb-5 text-gray-800"> Username : <b>{{ $id->name }}</b> </h1>
       <br>
       <!-- DataTales Example -->
