@@ -26,5 +26,7 @@
             "htm",
             "html"
         ]
-    }
+    },
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true
 }
