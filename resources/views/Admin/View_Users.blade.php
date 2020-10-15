@@ -17,6 +17,7 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th> Blog Post </th>
+                        <th> Roles <br> Assigned </th>
                         <th>User Email</th>
                         <th> Registered On</th>
                         <th> Updated On</th>
@@ -28,18 +29,35 @@
                   <tbody class="text-center">
                      @foreach ($view_users as $all_users)
                         <tr>
-                           <td>{{ $all_users->id }}</td>
+                           <td>  {{ $all_users->id }}
+                              @foreach ($all_users->roles as $user_roles)
+                                 @if ($user_roles->name === 'Admin' )
+                                    <b><i class="fas fa-star text-success"></i></b>
+                                 @endif
+                              @endforeach
+                           </td>
                            <td><a href="{!! route('assign-role',$all_users->id) !!}">{{ $all_users->name }}</a></td>
                            <td>{{ $all_users->posts->count() }}</td>
+                           <td>
+                              {{ $all_users->roles->count() }}
+                           </td>
                            <td>{{ $all_users->email }}</td>
                            <td>{{ $all_users->created_at->diffforhumans() }}</td>
                            <td>{{ $all_users->updated_at->diffforhumans() }}</td>
                            <td><a class="font-weight-bold text-success" href="">Approved</a></td>
-                           <td> <a href=""><button class="btn btn-danger"> Delete </button></a> </td>
+                           <td>
+                              <form action="{!! route('view_users_delete', $all_users->id) !!}" method="post">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button class="btn btn-danger"> Delete </button>
+                              </form>
+                           </td>
                         </tr>
                      @endforeach
                   </tbody>
                </table>
+               <br>
+               <h2 class="h6"><b>Note:</b> &nbsp;<i class="fas fa-star text-success"></i> &nbsp;<b>(it's Admin) </b> </h2>
             </div>
          </div>
       </div>

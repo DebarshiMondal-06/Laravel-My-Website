@@ -65,18 +65,24 @@
 <!-- Heading -->
 <div class="sidebar-heading">Addons</div>
 <!-- Nav Item - Tables -->
-<li class="nav-item">
-   <a class="nav-link" href="{!! route('add-posts') !!}">
-      <i class="fas fa-fw fa-table"></i>
-      <span> Create Post </span>
-   </a>
-</li>
 
 @if (auth()->user()->admin_role('admin'))
    <li class="nav-item">
       <a class="nav-link" href="{!! route('view_users') !!}">
          <i class="fas fa-fw fa-users"></i>
          <span>Users</span>
+      </a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" href="{!! route('add-posts') !!}">
+         <i class="fas fa-fw fa-table"></i>
+         <span> Create Post </span>
+      </a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" href="{!! route('all_Mail') !!}">
+         <i class="fas fa-envelope fa-fw"></i>
+         <span>All Mail</span>
       </a>
    </li>
 @else
@@ -86,20 +92,16 @@
          <span>Profile</span>
       </a>
    </li>
-@endif
-
-@if (auth()->user()->admin_role('admin'))
    <li class="nav-item">
-      <a class="nav-link" href="{!! route('all_Mail') !!}">
-         <i class="fas fa-envelope fa-fw"></i>
-         <span>All Mail</span>
+      <a class="nav-link" href="{!! route('user_post_create') !!}">
+         <i class="fas fa-fw fa-users"></i>
+         <span>Create Post</span>
       </a>
    </li>
-@else
    <li class="nav-item">
-      <a class="nav-link" href="{!! route('user_specefic_post') !!}">
+      <a class="nav-link" href="{!! route('user_blog_posted') !!}">
          <i class="fas fa-envelope fa-fw"></i>
-         <span>Blog Post</span>
+         <span> View Blog Posts </span>
       </a>
    </li>
 @endif

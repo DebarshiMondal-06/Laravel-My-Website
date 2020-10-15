@@ -60,5 +60,18 @@ class AdminController extends Controller
       return view('Admin.View-user-roles',['users'=>$user_roles]);
    }
 
+   public function users_delete(User $id) {
+      $id->delete();
+      return back();
+   }
+
+
+
+
+
+
+
+
+
 
 }

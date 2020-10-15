@@ -25,6 +25,15 @@ class RoleController extends Controller
       return back();
    }
 
+   public function edit($id)
+   {
+      $edit_role = Role::find($id);
+      $edit_role->name = request('name');
+      $edit_role->slug = request('name');
+      $edit_role->save();
+      return redirect()->route('role-view');
+   }
+
    public function delete(Role $id) {
       if (($id->user_id == auth()->user()->id)) {
          $id->delete();
